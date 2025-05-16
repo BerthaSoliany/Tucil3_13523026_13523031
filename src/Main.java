@@ -2,6 +2,8 @@
 import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
+import java.util.List;
+import java.util.ArrayList;
 
 import javax.swing.text.html.StyleSheet;
 
@@ -28,13 +30,21 @@ public class Main {
             }
 
             Board b = new Board();
+            fileName = "test\\" + fileName;
             InputOutput.readFile(fileName, b);
             b.displayBoard();
 
+            // // debugging
+            // b.displayPiece();
+            // List<Board> visited = b.getNeighbors();
+            // for (Board board : visited) {
+            //     board.displayBoard();
+            // }
+
             System.out.println("Sekarang, pilih algoritma penyelesaian yang ingin kamu gunakan: ");
-            System.out.println("1. Algoritma ");
-            System.out.println("2. Algoritma ");
-            System.out.println("3. Algoritma ");
+            System.out.println("1. Algoritma UCS");
+            System.out.println("2. Algoritma Greedy Best First Search");
+            System.out.println("3. Algoritma A*");
             System.out.println("Pilihan: ");            
             int pilihan=0;
             pilihan = Integer.parseInt(sc.nextLine());
@@ -54,6 +64,9 @@ public class Main {
                 default:
                     break;
             }
+
+            List<Simpul> output = Algorithm.search(b, pilihan);
+            InputOutput.printOutput(b, output);
 
             InputOutput.writeFile(fileName, b);
         }

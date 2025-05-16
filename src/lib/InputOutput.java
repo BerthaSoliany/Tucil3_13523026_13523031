@@ -224,5 +224,39 @@ public class InputOutput {
         }
     }
 
+    public static void printOutput(Board awal, List<Simpul> output) {
+        System.out.println();
+        System.out.println("Papan awal:");
+        awal.displayBoard();
+
+        if (output.isEmpty()) {
+            System.out.println("Tidak ditemukan solusi... :(");
+            return;
+        }
+
+        int counter = 1;
+        for (Simpul s : output) {
+            Board board = s.getBoard();
+            Piece piece = s.getBoard().getPiece(s.getIdPiece());
+            
+            String direction = null;
+            if (piece.getOrientation() == 'h') {
+                if (s.getMoveValue() > 0) {
+                    direction = "kanan";
+                } else if (s.getMoveValue() < 0) {
+                    direction = "kiri";
+                }
+            } else {
+                if (s.getMoveValue() > 0) {
+                    direction = "bawah";
+                } else if (s.getMoveValue() < 0) {
+                    direction = "atas";
+                }
+            }
+
+            System.out.println("Gerakan " + counter++ + ": " + s.getIdPiece() + " sebanyak " + Math.abs(s.getMoveValue()) + " petak ke " + direction);
+            board.displayBoardForOutput(s.getIdPiece());
+        }
+    }
     
 }
