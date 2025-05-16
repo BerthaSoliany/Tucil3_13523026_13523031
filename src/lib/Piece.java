@@ -3,14 +3,16 @@ package lib;
 
 public class Piece {
     private char id;
-    private int[][] location; // atribut lokasi piece. sudah termasuk lebar dan tingginya
+    private int[][] location; // atribut lokasi piece.
     private int width;
     private int height;
-    // private boolean primaryPiece; // boolean untuk identifikasi primarypiece
 
     // constructor
     public Piece(char id, int[][] loc, int w, int h){
-        
+        this.id = id;
+        this.location = loc;
+        this.width = w;
+        this.height = h;
     }
 
     // getter setter
@@ -28,5 +30,4 @@ public class Piece {
     public boolean isPrimaryPiece(){
         return id == 'P';
     }
-
 }

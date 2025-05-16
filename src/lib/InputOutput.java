@@ -2,19 +2,16 @@ package lib;
 
 
 import java.io.BufferedReader;
-// import java.io.File;
-// import java.io.FileNotFoundException;
-// import java.util.Scanner;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
 
 public class InputOutput {
     public static void readFile(String fileName, Board b) {
         try {
+            // BARIS X KOLOM
             int A,B,N;
-            // char[][] board;
-            // Piece[] p;
 
             BufferedReader br = new BufferedReader(new FileReader(fileName));
             StringTokenizer st = new StringTokenizer(br.readLine());
@@ -31,8 +28,8 @@ public class InputOutput {
                 br.close();
                 throw new IOException("Format salah: A dan B harus berupa angka.");
             }
-            b.setWidth(A);
-            b.setHeight(B);
+            b.setWidth(B);
+            b.setHeight(A);
 
             System.out.println("A:"+A+" B:"+B); // debugging
             
@@ -65,7 +62,7 @@ public class InputOutput {
                         exit[0] = -1;
                         exit[1] = l.indexOf('K');
                     } else if (i == lines.size() - 1) { // K plg bawah, exit={B,j}
-                        exit[0] = B;
+                        exit[0] = A;
                         exit[1] = l.indexOf('K');
                     } 
                     continue;
@@ -73,21 +70,21 @@ public class InputOutput {
 
                 l = l.replaceAll(" ","");
 
-                if (l.length()==A+1){
+                if (l.length()==B+1){
                     // K plg kiri, exit={row,-1}
                     if (l.charAt(0)=='K'){
                         exit[0] = row;
                         exit[1] = -1;
                         l=lines.get(i).substring(1);
-                    } else if (l.charAt(l.length()-1)=='K'){ // K plg kanan, exit={row,A}
+                    } else if (l.charAt(l.length()-1)=='K'){ // K plg kanan, exit={row,B}
                         exit[0] = row;
-                        exit[1] = A;
-                        l = l.substring(0, A);
+                        exit[1] = B;
+                        l = l.substring(0, B);
                     }
                 }
 
-                if (row<B){
-                    board[row++] = l.substring(0, A).toCharArray();
+                if (row<A){
+                    board[row++] = l.substring(0, B).toCharArray();
                 }
             }
 
@@ -101,12 +98,12 @@ public class InputOutput {
 
 
             Map<Character, List<int[]>> pieceMap = new HashMap<>();
-            for (int i = 0; i < B; i++) {
-                for (int j = 0; j < A; j++) {
+            for (int i = 0; i < A; i++) {
+                for (int j = 0; j < B; j++) {
                     char c = board[i][j];
                     if (c != '.') {
                         pieceMap.putIfAbsent(c, new ArrayList<>());
-                        pieceMap.get(c).add(new int[]{j, i});
+                        pieceMap.get(c).add(new int[]{i, j});
                     }
                 }
             }
@@ -126,27 +123,105 @@ public class InputOutput {
                     maxY = Math.max(maxY, p[1]);
                 }
 
-                int width = maxX - minX + 1;
-                int height = maxY - minY + 1;
+                int height = maxX - minX + 1;
+                int width = maxY - minY + 1;
 
-                int[][] relativeLoc = new int[locs.size()][2];
+                int[][] loc = new int[locs.size()][2];
                 for (int i = 0; i < locs.size(); i++) {
-                    relativeLoc[i][0] = locs.get(i)[0] - minX;
-                    relativeLoc[i][1] = locs.get(i)[1] - minY;
+                    loc[i][0] = locs.get(i)[0];
+                    loc[i][1] = locs.get(i)[1];
                 }
 
-                Piece piece = new Piece(id, relativeLoc, width, height);
+                Piece piece = new Piece(id, loc, width, height);
                 pieces[idx++] = piece;
             }
 
             b.setPieces(pieces);
             br.close();
-
+            if (pieces.length < N+1){
+                throw new IOException("Jumlah piece tidak sesuai dengan input.");
+            }
         } catch (IOException e) {
             System.out.println("Gagal membaca file "+fileName);
             e.printStackTrace();
         }
 
+    }
+
+    // TODO : tentuin penulisan output geraknya kemana [piece]-[arah gerak]
+    public static void writeFile(String fileName, Board b){
+        try{
+            FileWriter save = new FileWriter(fileName+"_solution");
+            save.write("Step to step solution for "+fileName+"\n\n"); // fileName adalah fileName input
+            save.write("Board Dimension: "+b.getHeight()+" x "+b.getWidth()+"\n");
+            save.write("Total pieces beside P: "+b.getTotalPieces()+"\n");
+            save.write("\nTime spent: "+"\n"); // getTime dari algo
+            save.write("Total move made: "+"\n"); // getTotalMove dari algo
+            // save.write("Initial Board\n");
+            for (int k=0;k<b.getTotalStep();k++){
+                save.write("Step-"+k+"\n");
+                if (b.getExitLoc()[0]==-1){
+                    for (int i=0;i<b.getWidth();i++){
+                        if (b.getExitLoc()[1]==i){
+                            save.write("K");
+                        } else {
+                            save.write(" ");
+                        }
+                    }
+                    save.write("");
+                    for (int i = 0; i < b.getHeight(); i++) {
+                        for (int j = 0; j < b.getWidth(); j++) {
+                            save.write(b.getBoard()[i][j]);
+                        }
+                        save.write("");
+                    }
+                } else if (b.getExitLoc()[0]==b.getHeight()){
+                    for (int i = 0; i < b.getHeight(); i++) {
+                        for (int j = 0; j < b.getWidth(); j++) {
+                            save.write(b.getBoard()[i][j]);
+                        }
+                        save.write("");
+                    }
+                    for (int i=0;i<b.getWidth();i++){
+                        if (b.getExitLoc()[1]==i){
+                            save.write("K");
+                        } else {
+                            save.write(" ");
+                        }
+                    }
+                    save.write("");
+                } else if (b.getExitLoc()[1] == -1) {
+                    for (int i = 0; i < b.getHeight(); i++) {
+                        if (i == b.getExitLoc()[0]) {
+                            save.write("K");
+                        } else {
+                            save.write(" ");
+                        }
+                        for (int j = 0; j < b.getWidth(); j++) {
+                            save.write(b.getBoard()[i][j]);
+                        }
+                        save.write("");
+                    }
+                } else if (b.getExitLoc()[1] == b.getWidth()) {
+                    for (int i = 0; i < b.getHeight(); i++) {
+                        for (int j = 0; j < b.getWidth(); j++) {
+                            save.write(b.getBoard()[i][j]);
+                        }
+                        if (i == b.getExitLoc()[0]) {
+                            save.write("K");
+                        } else {
+                            save.write(" ");
+                        }
+                        save.write("");
+                    }
+                }
+            }
+            
+            save.close();
+        } catch (IOException e){
+            System.out.println("Error writing file");
+            e.printStackTrace();
+        }
     }
 
     
