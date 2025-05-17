@@ -1,0 +1,35 @@
+Solusi untuk test\input.txt_solution
+
+Dimensi papan: 5 x 6
+Jumlah piece selain P: 7
+
+Waktu penyelesaian: 22ns
+Total gerakan yang dilakukan: 3
+
+Papan Awal
+  K   .BBC.F
+...CDF
+G.P.DF
+GHPIII
+GH....
+
+Gerakan 1: P sebanyak 1 petak ke atas  K   
+.BBC.F
+..PCDF
+G.P.DF
+GH.III
+GH....
+
+Gerakan 2: B sebanyak 1 petak ke kiri  K   
+BB.C.F
+..PCDF
+G.P.DF
+GH.III
+GH....
+
+Gerakan 3: P sebanyak 1 petak ke atas  K   
+BBPC.F
+..PCDF
+G...DF
+GH.III
+GH....

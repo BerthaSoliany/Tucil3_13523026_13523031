@@ -36,9 +36,9 @@ public class Algorithm {
             Board currentBoard = currentSimpul.getBoard();
 
             // debugging
-            System.out.println("Initial Board:");
-            currentBoard.displayBoard();
-            currentBoard.displayPiece();
+            // System.out.println("Initial Board:");
+            // currentBoard.displayBoard();
+            // currentBoard.displayPiece();
 
             // Check if the exit is reached
             if (currentBoard.isWin()) {

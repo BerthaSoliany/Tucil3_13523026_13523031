@@ -10,6 +10,7 @@ import java.util.*;
 public class InputOutput {
     public static void readFile(String fileName, Board b) {
         try {
+            fileName = "test\\" + fileName;
             // BARIS X KOLOM
             int A,B,N;
 
@@ -41,7 +42,7 @@ public class InputOutput {
             N = Integer.parseInt(br.readLine());
             b.setTotalPieces(N);
 
-            System.out.println("Total piece selain primary piece: "+N); // debugging
+            System.out.println("Total piece selain primary piece: "+N+"\n"); // debugging
             
             char[][] board = new char[A][B];
             int[] exit = {-1,-1};
@@ -114,17 +115,17 @@ public class InputOutput {
                 char id = entry.getKey();
                 List<int[]> locs = entry.getValue();
 
-                int minX = Integer.MAX_VALUE, maxX = Integer.MIN_VALUE;
                 int minY = Integer.MAX_VALUE, maxY = Integer.MIN_VALUE;
+                int minX = Integer.MAX_VALUE, maxX = Integer.MIN_VALUE;
                 for (int[] p : locs) {
-                    minX = Math.min(minX, p[0]);
-                    maxX = Math.max(maxX, p[0]);
-                    minY = Math.min(minY, p[1]);
-                    maxY = Math.max(maxY, p[1]);
+                    minY = Math.min(minY, p[0]);
+                    maxY = Math.max(maxY, p[0]);
+                    minX = Math.min(minX, p[1]);
+                    maxX = Math.max(maxX, p[1]);
                 }
 
-                int height = maxX - minX + 1;
-                int width = maxY - minY + 1;
+                int height = maxY - minY + 1;
+                int width = maxX - minX + 1;
 
                 int[][] loc = new int[locs.size()][2];
                 for (int i = 0; i < locs.size(); i++) {
@@ -148,78 +149,158 @@ public class InputOutput {
 
     }
 
-    // TODO : tentuin penulisan output geraknya kemana [piece]-[arah gerak]
-    public static void writeFile(String fileName, Board b){
+    public static void writeFile(String fileName, Board awal, List<Simpul> output, long timeSpent){
         try{
-            FileWriter save = new FileWriter(fileName+"_solution");
-            save.write("Step to step solution for "+fileName+"\n\n"); // fileName adalah fileName input
-            save.write("Board Dimension: "+b.getHeight()+" x "+b.getWidth()+"\n");
-            save.write("Total pieces beside P: "+b.getTotalPieces()+"\n");
-            save.write("\nTime spent: "+"\n"); // getTime dari algo
-            save.write("Total move made: "+"\n"); // getTotalMove dari algo
-            // save.write("Initial Board\n");
-            for (int k=0;k<b.getTotalStep();k++){
-                save.write("Step-"+k+"\n");
-                if (b.getExitLoc()[0]==-1){
-                    for (int i=0;i<b.getWidth();i++){
-                        if (b.getExitLoc()[1]==i){
-                            save.write("K");
-                        } else {
-                            save.write(" ");
-                        }
+            fileName = "test\\" + fileName+"_solution";
+            FileWriter save = new FileWriter(fileName);
+            save.write("Solusi untuk "+fileName+"\n\n"); // fileName adalah fileName input
+            save.write("Dimensi papan: "+awal.getHeight()+" x "+awal.getWidth()+"\n");
+            save.write("Jumlah piece selain P: "+awal.getTotalPieces()+"\n");
+            save.write("\nWaktu penyelesaian: "+timeSpent+"ns\n");
+            save.write("Total gerakan yang dilakukan: "+output.size()+"\n\n");
+            // print ke file untuk papan awal
+            save.write("Papan Awal\n");
+            if (awal.getExitLoc()[0]==-1){
+                for (int i=0;i<awal.getWidth();i++){
+                    if (awal.getExitLoc()[1]==i){
+                        save.write("K");
+                    } else {
+                        save.write(" ");
                     }
-                    save.write("");
-                    for (int i = 0; i < b.getHeight(); i++) {
-                        for (int j = 0; j < b.getWidth(); j++) {
-                            save.write(b.getBoard()[i][j]);
-                        }
-                        save.write("");
+                }
+                save.write("");
+                for (int i = 0; i < awal.getHeight(); i++) {
+                    for (int j = 0; j < awal.getWidth(); j++) {
+                        save.write(awal.getBoard()[i][j]);
                     }
-                } else if (b.getExitLoc()[0]==b.getHeight()){
-                    for (int i = 0; i < b.getHeight(); i++) {
-                        for (int j = 0; j < b.getWidth(); j++) {
-                            save.write(b.getBoard()[i][j]);
-                        }
-                        save.write("");
+                    save.write("\n");
+                }
+            } else if (awal.getExitLoc()[0]==awal.getHeight()){
+                for (int i = 0; i < awal.getHeight(); i++) {
+                    for (int j = 0; j < awal.getWidth(); j++) {
+                        save.write(awal.getBoard()[i][j]);
                     }
-                    for (int i=0;i<b.getWidth();i++){
-                        if (b.getExitLoc()[1]==i){
-                            save.write("K");
-                        } else {
-                            save.write(" ");
-                        }
+                    save.write("\n");
+                }
+                for (int i=0;i<awal.getWidth();i++){
+                    if (awal.getExitLoc()[1]==i){
+                        save.write("K");
+                    } else {
+                        save.write(" ");
                     }
-                    save.write("");
-                } else if (b.getExitLoc()[1] == -1) {
-                    for (int i = 0; i < b.getHeight(); i++) {
-                        if (i == b.getExitLoc()[0]) {
-                            save.write("K");
-                        } else {
-                            save.write(" ");
-                        }
-                        for (int j = 0; j < b.getWidth(); j++) {
-                            save.write(b.getBoard()[i][j]);
-                        }
-                        save.write("");
+                }
+                save.write("\n");
+            } else if (awal.getExitLoc()[1] == -1) {
+                for (int i = 0; i < awal.getHeight(); i++) {
+                    if (i == awal.getExitLoc()[0]) {
+                        save.write("K");
+                    } else {
+                        save.write(" ");
                     }
-                } else if (b.getExitLoc()[1] == b.getWidth()) {
-                    for (int i = 0; i < b.getHeight(); i++) {
-                        for (int j = 0; j < b.getWidth(); j++) {
-                            save.write(b.getBoard()[i][j]);
-                        }
-                        if (i == b.getExitLoc()[0]) {
-                            save.write("K");
-                        } else {
-                            save.write(" ");
-                        }
-                        save.write("");
+                    for (int j = 0; j < awal.getWidth(); j++) {
+                        save.write(awal.getBoard()[i][j]);
                     }
+                    save.write("\n");
+                }
+            } else if (awal.getExitLoc()[1] == awal.getWidth()) {
+                for (int i = 0; i < awal.getHeight(); i++) {
+                    for (int j = 0; j < awal.getWidth(); j++) {
+                        save.write(awal.getBoard()[i][j]);
+                    }
+                    if (i == awal.getExitLoc()[0]) {
+                        save.write("K");
+                    } else {
+                        save.write(" ");
+                    }
+                    save.write("\n");
                 }
             }
             
+            // print langkah2 ke file
+            if (output.isEmpty()) {
+                save.write("Tidak ditemukan solusi... :(");
+            }
+
+            int counter = 1;
+            for (Simpul s : output) {
+                save.write("\n");
+                Piece piece = s.getBoard().getPiece(s.getIdPiece());
+                
+                String direction = null;
+                if (piece.getOrientation() == 'h') {
+                    if (s.getMoveValue() > 0) {
+                        direction = "kanan";
+                    } else if (s.getMoveValue() < 0) {
+                        direction = "kiri";
+                    }
+                } else {
+                    if (s.getMoveValue() > 0) {
+                        direction = "bawah";
+                    } else if (s.getMoveValue() < 0) {
+                        direction = "atas";
+                    }
+                }
+
+                save.write("Gerakan " + counter++ + ": " + s.getIdPiece() + " sebanyak " + Math.abs(s.getMoveValue()) + " petak ke " + direction);
+                if (s.getBoard().getExitLoc()[0]==-1){
+                    for (int i=0;i<s.getBoard().getWidth();i++){
+                        if (s.getBoard().getExitLoc()[1]==i){
+                            save.write("K");
+                        } else {
+                            save.write(" ");
+                        }
+                    }
+                    save.write("\n");
+                    for (int i = 0; i < s.getBoard().getHeight(); i++) {
+                        for (int j = 0; j < s.getBoard().getWidth(); j++) {
+                            save.write(s.getBoard().getBoard()[i][j]);
+                        }
+                        save.write("\n");
+                    }
+                } else if (s.getBoard().getExitLoc()[0]==s.getBoard().getHeight()){
+                    for (int i = 0; i < s.getBoard().getHeight(); i++) {
+                        for (int j = 0; j < s.getBoard().getWidth(); j++) {
+                            save.write(s.getBoard().getBoard()[i][j]);
+                        }
+                        save.write("\n");
+                    }
+                    for (int i=0;i<s.getBoard().getWidth();i++){
+                        if (s.getBoard().getExitLoc()[1]==i){
+                            save.write("K");
+                        } else {
+                            save.write(" ");
+                        }
+                    }
+                    save.write("\n");
+                } else if (s.getBoard().getExitLoc()[1] == -1) {
+                    for (int i = 0; i < s.getBoard().getHeight(); i++) {
+                        if (i == s.getBoard().getExitLoc()[0]) {
+                            save.write("K");
+                        } else {
+                            save.write(" ");
+                        }
+                        for (int j = 0; j < s.getBoard().getWidth(); j++) {
+                            save.write(s.getBoard().getBoard()[i][j]);
+                        }
+                        save.write("\n");
+                    }
+                } else if (s.getBoard().getExitLoc()[1] == s.getBoard().getWidth()) {
+                    for (int i = 0; i < s.getBoard().getHeight(); i++) {
+                        for (int j = 0; j < s.getBoard().getWidth(); j++) {
+                            save.write(s.getBoard().getBoard()[i][j]);
+                        }
+                        if (i == s.getBoard().getExitLoc()[0]) {
+                            save.write("K");
+                        } else {
+                            save.write(" ");
+                        }
+                        save.write("\n");
+                    }
+                }
+            }
             save.close();
         } catch (IOException e){
-            System.out.println("Error writing file");
+            System.out.println("Terjadi kesalahan saat menulis file.");
             e.printStackTrace();
         }
     }

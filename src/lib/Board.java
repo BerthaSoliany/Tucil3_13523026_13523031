@@ -15,10 +15,6 @@ public class Board {
     private int totalStep=0; // untuk menghitung banyak step. ini jadi static oke jg sih
 
     public Board(){}
-    
-    public Board(int width, int height, Piece[] p, int[][] e, int[][] pp){
-        // constructor untuk board awal
-    }
 
     // copy constructor
     public Board(Board b){
@@ -206,34 +202,19 @@ public class Board {
     public void displayPiece(){
         Piece[] pieces = getPieces();
         if (pieces == null || pieces.length == 0) {
-            System.out.println("No pieces to display.");
+            System.out.println("Board tidak mempunyai piece.");
             return;
         }
 
         for (Piece p : pieces) {
-            System.out.println("Piece ID: " + p.getId());
-            System.out.println("Dimensions: " + p.getHeight() + " x " + p.getWidth());
-            System.out.println("Locations:");
+            System.out.println("ID piece: " + p.getId());
+            System.out.println("Dimensi piece: " + p.getHeight() + " x " + p.getWidth());
+            System.out.println("Lokasi:");
             for (int[] loc : p.getLocation()) {
                 System.out.println("  (" + loc[0] + ", " + loc[1] + ")");
             }
             System.out.println();
         }
-    }
-
-    // fungsi2 di bawah ini bisa dipindah ke algo.java. yg lbh nyaman yg mana aja
-
-    // mungkin geraknya satu2 aja yg diambil
-    // tp yg ditampilin adalah keseluruhan gerakan untuk satu piece itu
-    public void movePiece(Piece piece, int[][] move){
-        // piece bergerak sejauh move 
-    }
-
-    public boolean isValidMove(char id, int[][] move){
-        // boolean untuk mengecek kevalidan gerekan
-        // mengecek kosong atau tidak
-        // mengecek keluar dari board atau tidak
-        return true;
     }
 
     public boolean isWin(){
