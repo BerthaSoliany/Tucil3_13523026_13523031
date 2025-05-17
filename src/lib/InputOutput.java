@@ -156,7 +156,7 @@ public class InputOutput {
             save.write("Solusi untuk "+fileName+"\n\n"); // fileName adalah fileName input
             save.write("Dimensi papan: "+awal.getHeight()+" x "+awal.getWidth()+"\n");
             save.write("Jumlah piece selain P: "+awal.getTotalPieces()+"\n");
-            save.write("\nWaktu penyelesaian: "+timeSpent+"ns\n");
+            save.write("\nWaktu penyelesaian: "+timeSpent+" ns\n");
             save.write("Total gerakan yang dilakukan: "+output.size()+"\n\n");
             // print ke file untuk papan awal
             save.write("Papan Awal\n");
