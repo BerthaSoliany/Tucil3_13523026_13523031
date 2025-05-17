@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.*;
 
 public class InputOutput {
-    public static void readFile(String fileName, Board b) {
+    public static void readFile(String fileName, Board b) throws IOException{
         try {
             fileName = "test\\" + fileName;
             // BARIS X KOLOM
@@ -52,6 +52,8 @@ public class InputOutput {
             while ((line=br.readLine())!=null){
                 lines.add(line);
             }
+            
+            int panjang, lebar=-1; // untuk mengecek kevalidan panjang dan lebar papan
 
             int row = 0;
             for (int i=0;i<lines.size();i++){
@@ -65,13 +67,17 @@ public class InputOutput {
                     } else if (i == lines.size() - 1) { // K plg bawah, exit={B,j}
                         exit[0] = A;
                         exit[1] = l.indexOf('K');
-                    } 
+                    }
+                    panjang = lines.size()-1;
+                    if (panjang!=A){br.close();throw new IOException("Tinggi papan "+panjang+" tidak sesuai.");}
                     continue;
                 }
 
                 l = l.replaceAll(" ","");
 
                 if (l.length()==B+1){
+                    lebar = l.length()-1;
+                    if (lebar != B){br.close();throw new IOException("Lebar papan "+lebar+" tidak sesuai.");}
                     // K plg kiri, exit={row,-1}
                     if (l.charAt(0)=='K'){
                         exit[0] = row;
@@ -82,6 +88,9 @@ public class InputOutput {
                         exit[1] = B;
                         l = l.substring(0, B);
                     }
+                } else {
+                    lebar = l.length();
+                    if (lebar != B){br.close();throw new IOException("Lebar papan "+lebar+" tidak sesuai.");}
                 }
 
                 if (row<A){
@@ -139,12 +148,13 @@ public class InputOutput {
 
             b.setPieces(pieces);
             br.close();
-            if (pieces.length < N+1){
-                throw new IOException("Jumlah piece tidak sesuai dengan input.");
+            if (pieces.length != N+1){
+                throw new IOException("Jumlah piece "+pieces.length+" tidak sesuai dengan file input.");
             }
         } catch (IOException e) {
             System.out.println("Gagal membaca file "+fileName);
             e.printStackTrace();
+            throw e;
         }
 
     }
