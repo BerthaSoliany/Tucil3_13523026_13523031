@@ -51,12 +51,22 @@ public class Main {
                 System.out.println("4. Keluar");
                 System.out.println("Pilihan: ");            
                 int pilihan=0;
-                pilihan = Integer.parseInt(sc.nextLine());
-
-                while (pilihan<1 || pilihan>4) {
-                    System.out.println("Pilihan tidak valid");
-                    System.out.print("Pilihan: ");
-                    pilihan = Integer.parseInt(sc.nextLine());
+                String pil;
+                boolean validInput = false;
+                while (!validInput) {
+                    pil = sc.nextLine();
+                    try {
+                        pilihan = Integer.parseInt(pil);
+                        if (pilihan >= 1 && pilihan <= 4) {
+                            validInput = true;
+                        } else {
+                            System.out.println("Pilihan tidak valid");
+                            System.out.print("Pilihan: ");
+                        }
+                    } catch (NumberFormatException e) {
+                        System.out.println("Input harus berupa angka.");
+                        System.out.print("Pilihan: ");
+                    }
                 }
 
                 // bisa ditaro disini juga buat itung waktunya

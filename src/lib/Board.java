@@ -63,10 +63,14 @@ public class Board {
     }
 
     public void displayBoard() {
+        String reset = "\u001B[0m";
+        String red = "\u001B[31m";
+        String green = "\u001B[32m";
+
         if (exitLoc[0]==-1){
             for (int i=0;i<width;i++){
                 if (exitLoc[1]==i){
-                    System.out.print("K");
+                    System.out.print(green+"K"+reset);
                 } else {
                     System.out.print(" ");
                 }
@@ -74,20 +78,22 @@ public class Board {
             System.out.println();
             for (int i = 0; i < height; i++) {
                 for (int j = 0; j < width; j++) {
-                    System.out.print(board[i][j]);
+                    if (board[i][j] == 'P'){System.out.print(red + board[i][j]+reset);}
+                    else {System.out.print(board[i][j]);}
                 }
                 System.out.println();
             }
         } else if (exitLoc[0]==height){
             for (int i = 0; i < height; i++) {
                 for (int j = 0; j < width; j++) {
-                    System.out.print(board[i][j]);
+                    if (board[i][j] == 'P'){System.out.print(red + board[i][j]+reset);}
+                    else {System.out.print(board[i][j]);}
                 }
                 System.out.println();
             }
             for (int i=0;i<width;i++){
                 if (exitLoc[1]==i){
-                    System.out.print("K");
+                    System.out.print(green+"K"+reset);
                 } else {
                     System.out.print(" ");
                 }
@@ -96,22 +102,24 @@ public class Board {
         } else if (exitLoc[1] == -1) {
             for (int i = 0; i < height; i++) {
                 if (i == exitLoc[0]) {
-                    System.out.print("K");
+                    System.out.print(green+"K"+reset);
                 } else {
                     System.out.print(" ");
                 }
                 for (int j = 0; j < width; j++) {
-                    System.out.print(board[i][j]);
+                    if (board[i][j] == 'P'){System.out.print(red + board[i][j]+reset);}
+                    else {System.out.print(board[i][j]);}
                 }
                 System.out.println();
             }
         } else if (exitLoc[1] == width) {
             for (int i = 0; i < height; i++) {
                 for (int j = 0; j < width; j++) {
-                    System.out.print(board[i][j]);
+                    if (board[i][j] == 'P'){System.out.print(red + board[i][j]+reset);}
+                    else {System.out.print(board[i][j]);}
                 }
                 if (i == exitLoc[0]) {
-                    System.out.print("K");
+                    System.out.print(green+"K"+reset);
                 } else {
                     System.out.print(" ");
                 }
@@ -124,11 +132,13 @@ public class Board {
     public void displayBoardForOutput(char id) {
         String reset = "\u001B[0m";
         String blueBg = "\u001B[44m";
+        String red = "\u001B[31m";
+        String green = "\u001B[32m";
 
         if (exitLoc[0]==-1){
             for (int i=0;i<width;i++){
                 if (exitLoc[1]==i){
-                    System.out.print("K");
+                    System.out.print(green+"K"+reset);
                 } else {
                     System.out.print(" ");
                 }
@@ -139,7 +149,8 @@ public class Board {
                     if (board[i][j] == id) {
                         System.out.print(blueBg + board[i][j] + reset);
                     } else {
-                        System.out.print(board[i][j]);
+                        if (board[i][j] == 'P'){System.out.print(red + board[i][j]+reset);}
+                        else {System.out.print(board[i][j]);}
                     }
                 }
                 System.out.println();
@@ -150,14 +161,15 @@ public class Board {
                     if (board[i][j] == id) {
                         System.out.print(blueBg + board[i][j] + reset);
                     } else {
-                        System.out.print(board[i][j]);
+                        if (board[i][j] == 'P'){System.out.print(red + board[i][j]+reset);}
+                        else {System.out.print(board[i][j]);}
                     }                
                 }
                 System.out.println();
             }
             for (int i=0;i<width;i++){
                 if (exitLoc[1]==i){
-                    System.out.print("K");
+                    System.out.print(green+"K"+reset);
                 } else {
                     System.out.print(" ");
                 }
@@ -166,7 +178,7 @@ public class Board {
         } else if (exitLoc[1] == -1) {
             for (int i = 0; i < height; i++) {
                 if (i == exitLoc[0]) {
-                    System.out.print("K");
+                    System.out.print(green+"K"+reset);
                 } else {
                     System.out.print(" ");
                 }
@@ -174,7 +186,8 @@ public class Board {
                     if (board[i][j] == id) {
                         System.out.print(blueBg + board[i][j] + reset);
                     } else {
-                        System.out.print(board[i][j]);
+                        if (board[i][j] == 'P'){System.out.print(red + board[i][j]+reset);}
+                        else {System.out.print(board[i][j]);}
                     }   
                 }
                 System.out.println();
@@ -185,11 +198,12 @@ public class Board {
                     if (board[i][j] == id) {
                         System.out.print(blueBg + board[i][j] + reset);
                     } else {
-                        System.out.print(board[i][j]);
+                        if (board[i][j] == 'P'){System.out.print(red + board[i][j]+reset);}
+                        else {System.out.print(board[i][j]);}
                     }   
                 }
                 if (i == exitLoc[0]) {
-                    System.out.print("K");
+                    System.out.print(green+"K"+reset);
                 } else {
                     System.out.print(" ");
                 }
