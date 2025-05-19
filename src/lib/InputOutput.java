@@ -94,7 +94,7 @@ public class InputOutput {
                     if (lebar != B){br.close();throw new IOException("Lebar papan "+lebar+" tidak sesuai.");}
                 } else {
                     lebar = l.length();
-                    System.out.println(lebar);
+                    // System.out.println(lebar);
 
                     if (lebar != B){br.close();throw new IOException("Lebar papan "+lebar+" tidak sesuai.");}
                 }
