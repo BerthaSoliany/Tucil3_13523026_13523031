@@ -1,0 +1,39 @@
+Solusi untuk tc3UCS.txt
+
+Dimensi papan: 6 x 6
+Jumlah piece selain P: 11
+
+Waktu penyelesaian: 48 ns
+Total gerakan yang dilakukan: 3
+
+Papan Awal
+PP.B.CK
+DD.BEC 
+FGGBEC 
+FHH.E. 
+..JIIY 
+..JMMY 
+
+Gerakan 1: B sebanyak 1 petak ke bawah
+PP...CK
+DD.BEC 
+FGGBEC 
+FHHBE. 
+..JIIY 
+..JMMY 
+
+Gerakan 2: C sebanyak 1 petak ke bawah
+PP....K
+DD.BEC 
+FGGBEC 
+FHHBEC 
+..JIIY 
+..JMMY 
+
+Gerakan 3: P sebanyak 4 petak ke kanan
+....PPK
+DD.BEC 
+FGGBEC 
+FHHBEC 
+..JIIY 
+..JMMY 

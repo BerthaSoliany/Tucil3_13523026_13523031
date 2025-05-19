@@ -1,0 +1,9 @@
+6 6
+7
+AA..BB
+..CP.B
+..CP.D
+@GGG.D
+..EEED
+...FFF
+   K
