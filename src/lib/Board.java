@@ -1,6 +1,6 @@
 package lib;
 
-
+import java.util.Objects;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
@@ -63,6 +63,9 @@ public class Board {
     }
 
     public void displayBoard() {
+        String reset = "\u001B[0m";
+        String yellow = "\u001B[33m";
+
         if (exitLoc[0]==-1){
             for (int i=0;i<width;i++){
                 if (exitLoc[1]==i){
@@ -74,14 +77,22 @@ public class Board {
             System.out.println();
             for (int i = 0; i < height; i++) {
                 for (int j = 0; j < width; j++) {
-                    System.out.print(board[i][j]);
+                    if (board[i][j] == 'P') {
+                        System.out.print(yellow + board[i][j] + reset);
+                    } else {
+                        System.out.print(board[i][j]);
+                    }
                 }
                 System.out.println();
             }
         } else if (exitLoc[0]==height){
             for (int i = 0; i < height; i++) {
                 for (int j = 0; j < width; j++) {
-                    System.out.print(board[i][j]);
+                    if (board[i][j] == 'P') {
+                        System.out.print(yellow + board[i][j] + reset);
+                    } else {
+                        System.out.print(board[i][j]);
+                    }
                 }
                 System.out.println();
             }
@@ -101,14 +112,22 @@ public class Board {
                     System.out.print(" ");
                 }
                 for (int j = 0; j < width; j++) {
-                    System.out.print(board[i][j]);
+                    if (board[i][j] == 'P') {
+                        System.out.print(yellow + board[i][j] + reset);
+                    } else {
+                        System.out.print(board[i][j]);
+                    }
                 }
                 System.out.println();
             }
         } else if (exitLoc[1] == width) {
             for (int i = 0; i < height; i++) {
                 for (int j = 0; j < width; j++) {
-                    System.out.print(board[i][j]);
+                    if (board[i][j] == 'P') {
+                        System.out.print(yellow + board[i][j] + reset);
+                    } else {
+                        System.out.print(board[i][j]);
+                    }
                 }
                 if (i == exitLoc[0]) {
                     System.out.print("K");
@@ -123,6 +142,7 @@ public class Board {
 
     public void displayBoardForOutput(char id) {
         String reset = "\u001B[0m";
+        String yellow = "\u001B[33m";
         String blueBg = "\u001B[44m";
 
         if (exitLoc[0]==-1){
@@ -137,7 +157,13 @@ public class Board {
             for (int i = 0; i < height; i++) {
                 for (int j = 0; j < width; j++) {
                     if (board[i][j] == id) {
-                        System.out.print(blueBg + board[i][j] + reset);
+                        if (id == 'P') {
+                            System.out.print(blueBg + yellow + board[i][j] + reset);
+                        } else {
+                            System.out.print(blueBg + board[i][j] + reset);
+                        }
+                    } else if (board[i][j] == 'P') {
+                        System.out.print(yellow + board[i][j] + reset);
                     } else {
                         System.out.print(board[i][j]);
                     }
@@ -148,10 +174,16 @@ public class Board {
             for (int i = 0; i < height; i++) {
                 for (int j = 0; j < width; j++) {
                     if (board[i][j] == id) {
-                        System.out.print(blueBg + board[i][j] + reset);
+                        if (id == 'P') {
+                            System.out.print(blueBg + yellow + board[i][j] + reset);
+                        } else {
+                            System.out.print(blueBg + board[i][j] + reset);
+                        }
+                    } else if (board[i][j] == 'P') {
+                        System.out.print(yellow + board[i][j] + reset);
                     } else {
                         System.out.print(board[i][j]);
-                    }                
+                    }             
                 }
                 System.out.println();
             }
@@ -172,10 +204,16 @@ public class Board {
                 }
                 for (int j = 0; j < width; j++) {
                     if (board[i][j] == id) {
-                        System.out.print(blueBg + board[i][j] + reset);
+                        if (id == 'P') {
+                            System.out.print(blueBg + yellow + board[i][j] + reset);
+                        } else {
+                            System.out.print(blueBg + board[i][j] + reset);
+                        }
+                    } else if (board[i][j] == 'P') {
+                        System.out.print(yellow + board[i][j] + reset);
                     } else {
                         System.out.print(board[i][j]);
-                    }   
+                    }  
                 }
                 System.out.println();
             }
@@ -183,10 +221,16 @@ public class Board {
             for (int i = 0; i < height; i++) {
                 for (int j = 0; j < width; j++) {
                     if (board[i][j] == id) {
-                        System.out.print(blueBg + board[i][j] + reset);
+                        if (id == 'P') {
+                            System.out.print(blueBg + yellow + board[i][j] + reset);
+                        } else {
+                            System.out.print(blueBg + board[i][j] + reset);
+                        }
+                    } else if (board[i][j] == 'P') {
+                        System.out.print(yellow + board[i][j] + reset);
                     } else {
                         System.out.print(board[i][j]);
-                    }   
+                    }
                 }
                 if (i == exitLoc[0]) {
                     System.out.print("K");
@@ -341,5 +385,28 @@ public class Board {
             }
         }
         return neighbors;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Board other = (Board) o;
+
+        // Compare pieces' positions.  This is the MOST important part.
+        if (!Arrays.equals(this.pieces, other.pieces)) return false;
+
+        // // It's good practice to also compare these, even if they're often constant:
+        // if (width != other.width) return false;
+        // if (height != other.height) return false;
+        // if (totalPieces != other.totalPieces) return false;
+        // if (!Arrays.equals(exitLoc, other.exitLoc)) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return Arrays.hashCode(pieces);
     }
 }

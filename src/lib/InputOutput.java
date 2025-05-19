@@ -325,6 +325,11 @@ public class InputOutput {
             return;
         }
 
+        if (output.get(0).getIdPiece() == '-') {
+            System.out.println("Papan sudah dalam kondisi menang.");
+            return;
+        }
+
         int counter = 1;
         for (Simpul s : output) {
             Board board = s.getBoard();

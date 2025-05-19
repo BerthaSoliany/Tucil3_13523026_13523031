@@ -1,5 +1,7 @@
 package lib;
 
+import java.util.Objects;
+import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -82,5 +84,23 @@ public class Piece {
             possiblePieces.add(newPiece);
         }
         return possiblePieces;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Piece other = (Piece) o;
+        return id == other.id &&
+               width == other.width &&
+               height == other.height &&
+               Arrays.deepEquals(location, other.location);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(id, width, height);
+        result = 31 * result + Arrays.deepHashCode(location);
+        return result;
     }
 }
