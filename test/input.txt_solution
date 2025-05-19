@@ -3,8 +3,8 @@ Solusi untuk test\input.txt_solution
 Dimensi papan: 5 x 6
 Jumlah piece selain P: 7
 
-Waktu penyelesaian: 22ns
-Total gerakan yang dilakukan: 3
+Waktu penyelesaian: 29 ns
+Total gerakan yang dilakukan: 5
 
 Papan Awal
   K   .BBC.F
@@ -20,16 +20,30 @@ G.P.DF
 GH.III
 GH....
 
-Gerakan 2: B sebanyak 1 petak ke kiri  K   
-BB.C.F
-..PCDF
-G.P.DF
-GH.III
-GH....
+Gerakan 2: H sebanyak 2 petak ke atas  K   
+.BBC.F
+.HPCDF
+GHP.DF
+G..III
+G.....
 
-Gerakan 3: P sebanyak 1 petak ke atas  K   
-BBPC.F
-..PCDF
-G...DF
-GH.III
-GH....
+Gerakan 3: D sebanyak 1 petak ke atas  K   
+.BBCDF
+.HPCDF
+GHP..F
+G..III
+G.....
+
+Gerakan 4: B sebanyak 1 petak ke kiri  K   
+BB.CDF
+.HPCDF
+GHP..F
+G..III
+G.....
+
+Gerakan 5: P sebanyak 1 petak ke atas  K   
+BBPCDF
+.HPCDF
+GH...F
+G..III
+G.....

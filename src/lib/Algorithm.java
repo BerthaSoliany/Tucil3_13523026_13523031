@@ -16,12 +16,13 @@ public class Algorithm {
             return result; // Already solved
         }
 
-        int cost = 0; // dummy
+        // initial cost untuk UCS adalah 1 (1 langkah)
+        int cost = 1;
         List<Simpul> firstNeighbors = board.getNeighbors();
         for (Simpul neighbor : firstNeighbors) {
             Board neighborBoard = neighbor.getBoard();
             if (!visited.contains(neighborBoard)) {
-                neighbor.setCost(cost++); // dummy
+                neighbor.setCost(cost);
 
                 queue.add(neighbor);
                 visited.add(neighborBoard);
@@ -53,9 +54,30 @@ public class Algorithm {
             for (Simpul neighbor : neighbors) {
                 Board neighborBoard = neighbor.getBoard();
 
-                // kalau board sudah pernah diperiksa, maka cost saat ini pasti lebih besar, bisa langsung di skip
-                if (!visited.contains(neighborBoard)) {
-                    int newCost = costMap.get(currentBoard) + 1; // dummy
+                // untuk UCS dan greedy, kalau udah pernah diperiksa bisa dipastikan cost saat ini pasti lebih besar
+                if (algorithm == 1 || algorithm == 2) {
+    
+                    // kalau board sudah pernah diperiksa, maka cost saat ini pasti lebih besar, bisa langsung di skip
+                    if (!visited.contains(neighborBoard)) {
+                        int newCost = costMap.get(currentBoard) + 1;
+                        newCost = getHeuristicCost(neighborBoard, algorithm, newCost);
+
+                        // !costMap.containsKey(neighborBoard) hanya guard untuk memastikan costMap.get(neighborBoard) tidak null
+                        if (!costMap.containsKey(neighborBoard) || newCost < costMap.get(neighborBoard)) {
+                            neighbor.setCost(newCost);
+                            
+                            queue.add(neighbor);
+                            visited.add(neighborBoard);
+                            costMap.put(neighborBoard, newCost);
+                            parent.put(neighbor, currentSimpul);
+                        }
+                    }
+                }
+
+                // untuk A*, bisa saja board yang sudah pernah diperiksa costnya lebih baik
+                else {
+                    int newCost = costMap.get(currentBoard) + 1;
+                    newCost = getHeuristicCost(neighborBoard, algorithm, newCost);
 
                     // !costMap.containsKey(neighborBoard) hanya guard untuk memastikan costMap.get(neighborBoard) tidak null
                     if (!costMap.containsKey(neighborBoard) || newCost < costMap.get(neighborBoard)) {
@@ -65,7 +87,7 @@ public class Algorithm {
                         visited.add(neighborBoard);
                         costMap.put(neighborBoard, newCost);
                         parent.put(neighbor, currentSimpul);
-                    }
+                    }  
                 }
             }
         }
@@ -81,5 +103,18 @@ public class Algorithm {
             exit = parent.get(exit);
         }
         return path;
+    }
+
+    private static int getHeuristicCost(Board board, int algorithm, int UCScost) {
+        switch (algorithm) {
+            case 1: // UCS
+                return UCScost;
+            case 2: // greedy
+                return Heuristic.manhattanDistance(board, 'P');
+            case 3: // A*
+                return UCScost + Heuristic.manhattanDistance(board, 'P');
+            default:
+                return 0;
+        }
     }
 }
