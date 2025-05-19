@@ -142,11 +142,10 @@ public class Board {
         System.out.println();
     }
 
-    public void displayBoardForOutput(char id) {
+    public void displayBoardForOutput(char id, Board b) {
         String reset = "\u001B[0m";
-        String yellow = "\u001B[33m";
         String blueBg = "\u001B[44m";
-        String red = "\u001B[31m";
+        String yellow = "\u001B[33m";
         String green = "\u001B[32m";
 
         if (exitLoc[0]==-1){
@@ -169,8 +168,11 @@ public class Board {
                     } else if (board[i][j] == 'P') {
                         System.out.print(yellow + board[i][j] + reset);
                     } else {
-                        if (board[i][j] == 'P'){System.out.print(red + board[i][j]+reset);}
-                        else {System.out.print(board[i][j]);}
+                        if (b.getBoard()[i][j] == id) {
+                            System.out.print(blueBg + board[i][j] + reset);
+                        } else {
+                            System.out.print(board[i][j]);
+                        }
                     }
                 }
                 System.out.println();
@@ -187,8 +189,12 @@ public class Board {
                     } else if (board[i][j] == 'P') {
                         System.out.print(yellow + board[i][j] + reset);
                     } else {
-                        System.out.print(board[i][j]);
-                    }             
+                        if (b.getBoard()[i][j] == id) {
+                            System.out.print(blueBg + board[i][j] + reset);
+                        } else {
+                            System.out.print(board[i][j]);
+                        }
+                    }          
                 }
                 System.out.println();
             }
@@ -217,8 +223,12 @@ public class Board {
                     } else if (board[i][j] == 'P') {
                         System.out.print(yellow + board[i][j] + reset);
                     } else {
-                        System.out.print(board[i][j]);
-                    }  
+                        if (b.getBoard()[i][j] == id) {
+                            System.out.print(blueBg + board[i][j] + reset);
+                        } else {
+                            System.out.print(board[i][j]);
+                        }
+                    }
                 }
                 System.out.println();
             }
@@ -234,7 +244,11 @@ public class Board {
                     } else if (board[i][j] == 'P') {
                         System.out.print(yellow + board[i][j] + reset);
                     } else {
-                        System.out.print(board[i][j]);
+                        if (b.getBoard()[i][j] == id) {
+                            System.out.print(blueBg + board[i][j] + reset);
+                        } else {
+                            System.out.print(board[i][j]);
+                        }
                     }
                 }
                 if (i == exitLoc[0]) {

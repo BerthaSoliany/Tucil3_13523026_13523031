@@ -3,12 +3,13 @@ package lib;
 import java.util.*;
 
 public class Algorithm {
+    
+    public static Map<Simpul, Simpul> parent = new HashMap<>();
 
     public static List<Simpul> search(Board board, int algorithm) {
         PriorityQueue<Simpul> queue = new PriorityQueue<>(Comparator.comparingInt(Simpul::getCost));
         Set<Board> visited = new HashSet<>();
         Map<Board, Integer> costMap = new HashMap<>();
-        Map<Simpul, Simpul> parent = new HashMap<>();
 
         if (board.isWin()) {
             List<Simpul> result = new ArrayList<>();

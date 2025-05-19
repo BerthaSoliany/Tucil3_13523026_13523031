@@ -341,7 +341,7 @@ public class InputOutput {
         }
     }
 
-    public static void printOutput(Board awal, List<Simpul> output) {
+    public static void printOutput(Board awal, List<Simpul> output, Map<Simpul, Simpul> parentMap) {
         System.out.println();
         System.out.println("Papan awal:");
         awal.displayBoard();
@@ -377,7 +377,11 @@ public class InputOutput {
             }
 
             System.out.println("Gerakan " + counter++ + ": " + s.getIdPiece() + " sebanyak " + Math.abs(s.getMoveValue()) + " petak ke " + direction);
-            board.displayBoardForOutput(s.getIdPiece());
+            if (parentMap.get(s) != null) {
+                board.displayBoardForOutput(s.getIdPiece(), parentMap.get(s).getBoard());
+            } else {
+                board.displayBoardForOutput(s.getIdPiece(), awal);
+            }
         }
     }
     
