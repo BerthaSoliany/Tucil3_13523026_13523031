@@ -51,6 +51,7 @@ public class Piece {
         System.out.println();
         System.out.println("Piece Width: "+width);
         System.out.println("Piece Height: "+height);
+        System.out.println("Piece Orientation: "+ getOrientation());
     }
 
     public boolean isPrimaryPiece(){

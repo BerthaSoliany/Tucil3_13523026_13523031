@@ -157,8 +157,14 @@ public class InputOutput {
                     loc[i][1] = locs.get(i)[1];
                 }
 
+                if (width != 1 && height != 1) {
+                    br.close();
+                    throw new IOException("Piece "+id+" dengan ukuran "+width+" x "+height+" tidak valid.");
+                }
+
                 Piece piece = new Piece(id, loc, width, height);
                 pieces[idx++] = piece;
+
             }
 
             b.setPieces(pieces);
