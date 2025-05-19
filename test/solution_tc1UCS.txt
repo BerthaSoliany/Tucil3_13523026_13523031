@@ -3,11 +3,11 @@ Solusi untuk tc1UCS.txt
 Dimensi papan: 3 x 3
 Jumlah piece selain P: 1
 
-Waktu penyelesaian: 6 ns
+Waktu penyelesaian: 8 ns
 Total gerakan yang dilakukan: 0
 
 Papan Awal
 P.. 
-AA. 
+.A. 
 .A.K
 Tidak ditemukan solusi... :(
