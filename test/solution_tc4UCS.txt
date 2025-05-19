@@ -1,0 +1,52 @@
+Solusi untuk tc4UCS.txt
+
+Dimensi papan: 6 x 6
+Jumlah piece selain P: 7
+
+Waktu penyelesaian: 71 ns
+Total gerakan yang dilakukan: 4
+
+Papan Awal
+AA..BB
+..CP.B
+..CP.D
+.GGG.D
+..EEED
+...FFF
+   K  
+
+Gerakan 1: E sebanyak 2 petak ke kiri
+AA..BB
+..CP.B
+..CP.D
+.GGG.D
+EEE..D
+...FFF
+   K  
+
+Gerakan 2: G sebanyak 1 petak ke kiri
+AA..BB
+..CP.B
+..CP.D
+GGG..D
+EEE..D
+...FFF
+   K  
+
+Gerakan 3: F sebanyak 3 petak ke kiri
+AA..BB
+..CP.B
+..CP.D
+GGG..D
+EEE..D
+FFF...
+   K  
+
+Gerakan 4: P sebanyak 3 petak ke bawah
+AA..BB
+..C..B
+..C..D
+GGG..D
+EEEP.D
+FFFP..
+   K  

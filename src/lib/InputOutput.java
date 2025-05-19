@@ -74,9 +74,6 @@ public class InputOutput {
                 }
 
                 l = l.replaceAll(" ","");
-                
-                panjang = lines.size();
-                if (panjang!=A){br.close();throw new IOException("Tinggi papan "+panjang+" tidak sesuai.");}
 
                 if (l.length()==B+1){
                     
@@ -85,13 +82,20 @@ public class InputOutput {
                         exit[0] = row;
                         exit[1] = -1;
                         l=lines.get(i).substring(1);
+
+                        panjang = lines.size();
+                        if (panjang!=A){br.close();throw new IOException("Tinggi papan "+panjang+" tidak sesuai.");}
                     } else if (l.charAt(l.length()-1)=='K'){ // K plg kanan, exit={row,B}
                         exit[0] = row;
                         exit[1] = B;
                         l = l.substring(0, B);
+
+                        panjang = lines.size();
+                        if (panjang!=A){br.close();throw new IOException("Tinggi papan "+panjang+" tidak sesuai.");}
                     }
                     lebar = l.length();
                     if (lebar != B){br.close();throw new IOException("Lebar papan "+lebar+" tidak sesuai.");}
+                    
                 } else {
                     lebar = l.length();
                     // System.out.println(lebar);
@@ -180,7 +184,7 @@ public class InputOutput {
         try{
             fileName = "test\\" + "solution_"+fileName;
             FileWriter save = new FileWriter(fileName);
-            save.write("Solusi untuk "+fileName+"\n\n"); // fileName adalah fileName input
+            save.write("Solusi untuk "+fileName.substring(14)+"\n\n"); // fileName adalah fileName input
             save.write("Dimensi papan: "+awal.getHeight()+" x "+awal.getWidth()+"\n");
             save.write("Jumlah piece selain P: "+awal.getTotalPieces()+"\n");
             save.write("\nWaktu penyelesaian: "+timeSpent+" ns\n");
@@ -341,8 +345,10 @@ public class InputOutput {
         }
     }
 
-    public static void printOutput(Board awal, List<Simpul> output, Map<Simpul, Simpul> parentMap) {
+    public static void printOutput(Board awal, List<Simpul> output, long d) {
         System.out.println();
+        System.out.println("\nWaktu penyelesaian: "+d+" ns\n");
+        System.out.println("Total gerakan yang dilakukan: "+output.size()+"\n\n");
         System.out.println("Papan awal:");
         awal.displayBoard();
 

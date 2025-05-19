@@ -1,0 +1,87 @@
+Solusi untuk tc2UCS.txt
+
+Dimensi papan: 6 x 6
+Jumlah piece selain P: 10
+
+Waktu penyelesaian: 273 ns
+Total gerakan yang dilakukan: 9
+
+Papan Awal
+AEE.H. 
+AFG.HI 
+AFGPPIK
+...J.I 
+..DJLL 
+..DMM. 
+
+Gerakan 1: A sebanyak 2 petak ke bawah
+.EE.H. 
+.FG.HI 
+AFGPPIK
+A..J.I 
+A.DJLL 
+..DMM. 
+
+Gerakan 2: E sebanyak 1 petak ke kiri
+EE..H. 
+.FG.HI 
+AFGPPIK
+A..J.I 
+A.DJLL 
+..DMM. 
+
+Gerakan 3: G sebanyak 1 petak ke atas
+EEG.H. 
+.FG.HI 
+AF.PPIK
+A..J.I 
+A.DJLL 
+..DMM. 
+
+Gerakan 4: F sebanyak 2 petak ke bawah
+EEG.H. 
+..G.HI 
+A..PPIK
+AF.J.I 
+AFDJLL 
+..DMM. 
+
+Gerakan 5: P sebanyak 2 petak ke kiri
+EEG.H. 
+..G.HI 
+APP..IK
+AF.J.I 
+AFDJLL 
+..DMM. 
+
+Gerakan 6: J sebanyak 3 petak ke atas
+EEGJH. 
+..GJHI 
+APP..IK
+AF...I 
+AFD.LL 
+..DMM. 
+
+Gerakan 7: L sebanyak 1 petak ke kiri
+EEGJH. 
+..GJHI 
+APP..IK
+AF...I 
+AFDLL. 
+..DMM. 
+
+Gerakan 8: I sebanyak 2 petak ke bawah
+EEGJH. 
+..GJH. 
+APP...K
+AF...I 
+AFDLLI 
+..DMMI 
+
+Gerakan 9: P sebanyak 3 petak ke kanan
+EEGJH. 
+..GJH. 
+A...PPK
+AF...I 
+AFDLLI 
+..DMMI 
