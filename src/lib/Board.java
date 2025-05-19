@@ -65,11 +65,13 @@ public class Board {
     public void displayBoard() {
         String reset = "\u001B[0m";
         String yellow = "\u001B[33m";
+        String red = "\u001B[31m";
+        String green = "\u001B[32m";
 
         if (exitLoc[0]==-1){
             for (int i=0;i<width;i++){
                 if (exitLoc[1]==i){
-                    System.out.print("K");
+                    System.out.print(green+"K"+reset);
                 } else {
                     System.out.print(" ");
                 }
@@ -98,7 +100,7 @@ public class Board {
             }
             for (int i=0;i<width;i++){
                 if (exitLoc[1]==i){
-                    System.out.print("K");
+                    System.out.print(green+"K"+reset);
                 } else {
                     System.out.print(" ");
                 }
@@ -107,7 +109,7 @@ public class Board {
         } else if (exitLoc[1] == -1) {
             for (int i = 0; i < height; i++) {
                 if (i == exitLoc[0]) {
-                    System.out.print("K");
+                    System.out.print(green+"K"+reset);
                 } else {
                     System.out.print(" ");
                 }
@@ -130,7 +132,7 @@ public class Board {
                     }
                 }
                 if (i == exitLoc[0]) {
-                    System.out.print("K");
+                    System.out.print(green+"K"+reset);
                 } else {
                     System.out.print(" ");
                 }
@@ -144,11 +146,13 @@ public class Board {
         String reset = "\u001B[0m";
         String yellow = "\u001B[33m";
         String blueBg = "\u001B[44m";
+        String red = "\u001B[31m";
+        String green = "\u001B[32m";
 
         if (exitLoc[0]==-1){
             for (int i=0;i<width;i++){
                 if (exitLoc[1]==i){
-                    System.out.print("K");
+                    System.out.print(green+"K"+reset);
                 } else {
                     System.out.print(" ");
                 }
@@ -165,7 +169,8 @@ public class Board {
                     } else if (board[i][j] == 'P') {
                         System.out.print(yellow + board[i][j] + reset);
                     } else {
-                        System.out.print(board[i][j]);
+                        if (board[i][j] == 'P'){System.out.print(red + board[i][j]+reset);}
+                        else {System.out.print(board[i][j]);}
                     }
                 }
                 System.out.println();
@@ -189,7 +194,7 @@ public class Board {
             }
             for (int i=0;i<width;i++){
                 if (exitLoc[1]==i){
-                    System.out.print("K");
+                    System.out.print(green+"K"+reset);
                 } else {
                     System.out.print(" ");
                 }
@@ -198,7 +203,7 @@ public class Board {
         } else if (exitLoc[1] == -1) {
             for (int i = 0; i < height; i++) {
                 if (i == exitLoc[0]) {
-                    System.out.print("K");
+                    System.out.print(green+"K"+reset);
                 } else {
                     System.out.print(" ");
                 }
@@ -233,7 +238,7 @@ public class Board {
                     }
                 }
                 if (i == exitLoc[0]) {
-                    System.out.print("K");
+                    System.out.print(green+"K"+reset);
                 } else {
                     System.out.print(" ");
                 }

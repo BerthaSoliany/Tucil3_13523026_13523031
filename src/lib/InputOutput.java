@@ -74,10 +74,12 @@ public class InputOutput {
                 }
 
                 l = l.replaceAll(" ","");
+                
+                panjang = lines.size();
+                if (panjang!=A){br.close();throw new IOException("Tinggi papan "+panjang+" tidak sesuai.");}
 
                 if (l.length()==B+1){
-                    lebar = l.length()-1;
-                    if (lebar != B){br.close();throw new IOException("Lebar papan "+lebar+" tidak sesuai.");}
+                    
                     // K plg kiri, exit={row,-1}
                     if (l.charAt(0)=='K'){
                         exit[0] = row;
@@ -88,12 +90,21 @@ public class InputOutput {
                         exit[1] = B;
                         l = l.substring(0, B);
                     }
+                    lebar = l.length();
+                    if (lebar != B){br.close();throw new IOException("Lebar papan "+lebar+" tidak sesuai.");}
                 } else {
                     lebar = l.length();
+                    System.out.println(lebar);
+
                     if (lebar != B){br.close();throw new IOException("Lebar papan "+lebar+" tidak sesuai.");}
                 }
 
                 if (row<A){
+                    for (char c : l.toCharArray()){
+                        if ((c<'A'||c>'Z') || c=='K'){
+                            l = l.replace(c, '.');
+                        }
+                    }
                     board[row++] = l.substring(0, B).toCharArray();
                 }
             }
@@ -111,7 +122,7 @@ public class InputOutput {
             for (int i = 0; i < A; i++) {
                 for (int j = 0; j < B; j++) {
                     char c = board[i][j];
-                    if (c != '.') {
+                    if (c != '.' && (c >= 'A' || c<='Z') && c!='K') {
                         pieceMap.putIfAbsent(c, new ArrayList<>());
                         pieceMap.get(c).add(new int[]{i, j});
                     }
@@ -161,7 +172,7 @@ public class InputOutput {
 
     public static void writeFile(String fileName, Board awal, List<Simpul> output, long timeSpent){
         try{
-            fileName = "test\\" + fileName+"_solution";
+            fileName = "test\\" + "solution_"+fileName;
             FileWriter save = new FileWriter(fileName);
             save.write("Solusi untuk "+fileName+"\n\n"); // fileName adalah fileName input
             save.write("Dimensi papan: "+awal.getHeight()+" x "+awal.getWidth()+"\n");
@@ -178,7 +189,7 @@ public class InputOutput {
                         save.write(" ");
                     }
                 }
-                save.write("");
+                save.write("\n");
                 for (int i = 0; i < awal.getHeight(); i++) {
                     for (int j = 0; j < awal.getWidth(); j++) {
                         save.write(awal.getBoard()[i][j]);
@@ -229,6 +240,14 @@ public class InputOutput {
             // print langkah2 ke file
             if (output.isEmpty()) {
                 save.write("Tidak ditemukan solusi... :(");
+                save.close();
+                return;
+            }
+
+            if (output.get(0).getIdPiece()=='-'){
+                save.write("Papan sudah dalam kondisi menang.");
+                save.close();
+                return;
             }
 
             int counter = 1;
@@ -252,6 +271,7 @@ public class InputOutput {
                 }
 
                 save.write("Gerakan " + counter++ + ": " + s.getIdPiece() + " sebanyak " + Math.abs(s.getMoveValue()) + " petak ke " + direction);
+                save.write("\n");
                 if (s.getBoard().getExitLoc()[0]==-1){
                     for (int i=0;i<s.getBoard().getWidth();i++){
                         if (s.getBoard().getExitLoc()[1]==i){
