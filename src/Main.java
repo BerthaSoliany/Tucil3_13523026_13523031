@@ -70,17 +70,9 @@ public class Main {
                 }
 
                 // bisa ditaro disini juga buat itung waktunya
-                switch (pilihan) {
-                    case 1:
-                        
-                        break;
-                    case 2:
-                        break;
-                    case 3:
-                        break;
-                    default:
-                        System.out.println("Bye bye~");
-                        break;
+                if (pilihan == 4){
+                    System.out.println("Bye bye~");
+                    System.exit(1);
                 }
                 long startTime = System.nanoTime();
                 List<Simpul> output = Algorithm.search(b, pilihan);
