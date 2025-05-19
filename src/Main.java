@@ -1,7 +1,5 @@
-// import java.io.IOException;
 import java.io.File;
 import java.io.IOException;
-// import java.io.IOException;
 import java.util.Scanner;
 import java.util.List;
 // import java.util.ArrayList;
@@ -12,7 +10,14 @@ import lib.*;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("\nHalooo!\nSelamat datang di program penyelesaian Rush Hour!");
+        System.out.println("");
+        System.out.println("██████╗ ██╗   ██╗███████╗██╗  ██╗    ██╗  ██╗ ██████╗ ██╗   ██╗██████╗     ███████╗ ██████╗ ██╗    ██╗   ██╗███████╗██████╗"); 
+        System.out.println("██╔══██╗██║   ██║██╔════╝██║  ██║    ██║  ██║██╔═══██╗██║   ██║██╔══██╗    ██╔════╝██╔═══██╗██║    ██║   ██║██╔════╝██╔══██╗");
+        System.out.println("██████╔╝██║   ██║███████╗███████║    ███████║██║   ██║██║   ██║██████╔╝    ███████╗██║   ██║██║    ██║   ██║█████╗  ██████╔╝");
+        System.out.println("██╔══██╗██║   ██║╚════██║██╔══██║    ██╔══██║██║   ██║██║   ██║██╔══██╗    ╚════██║██║   ██║██║    ╚██╗ ██╔╝██╔══╝  ██╔══██╗");
+        System.out.println("██║  ██║╚██████╔╝███████║██║  ██║    ██║  ██║╚██████╔╝╚██████╔╝██║  ██║    ███████║╚██████╔╝███████╗╚████╔╝ ███████╗██║  ██║");
+        System.out.println("╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚═╝  ╚═╝    ╚═╝  ╚═╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═╝    ╚══════╝ ╚═════╝ ╚══════╝ ╚═══╝  ╚══════╝╚═╝  ╚═╝");
+        System.out.println("                     Dibuat oleh: 13523026 Bertha Soliany Frandi dan 13523031 - Rafen Max Alessandro\n");
         try(Scanner sc = new Scanner(System.in)){
             System.out.println("Masukkan nama file (ex.txt) atau 'exit' untuk keluar: ");
             String fileName = sc.nextLine();
@@ -69,11 +74,21 @@ public class Main {
                     }
                 }
 
-                // bisa ditaro disini juga buat itung waktunya
-                if (pilihan == 4){
-                    System.out.println("Bye bye~");
-                    System.exit(1);
+                switch (pilihan) {
+                    case 1:
+                        System.out.println("Menggunakan algoritma UCS");
+                        break;
+                    case 2:
+                        System.out.println("Menggunakan algoritma Greedy Best First Search");
+                        break;
+                    case 3:
+                        System.out.println("Menggunakan algoritma A*");
+                        break;
+                    case 4:
+                        System.out.println("Bye bye~");
+                        System.exit(1);
                 }
+
                 long startTime = System.nanoTime();
                 List<Simpul> output = Algorithm.search(b, pilihan);
                 long endTime = System.nanoTime();

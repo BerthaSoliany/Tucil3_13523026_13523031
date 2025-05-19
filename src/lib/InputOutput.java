@@ -345,10 +345,15 @@ public class InputOutput {
         }
     }
 
-    public static void printOutput(Board awal, List<Simpul> output, long d) {
+    public static void printOutput(Board awal, List<Simpul> output, long d, Map<Simpul, Simpul> parentMap) {
         System.out.println();
-        System.out.println("\nWaktu penyelesaian: "+d+" ns\n");
-        System.out.println("Total gerakan yang dilakukan: "+output.size()+"\n\n");
+System.out.println("            __         _");
+System.out.println("  ___ ___  / /_ _____ (_)");
+System.out.println(" (_-</ _ \\/ / // (_-</ /"); 
+System.out.println("/___/\\___/_/\\_,_/___/_/");  
+                        
+        System.out.println("Waktu penyelesaian: "+d+" ns");
+        System.out.println("Total gerakan yang dilakukan: "+output.size()+"\n");
         System.out.println("Papan awal:");
         awal.displayBoard();
 
