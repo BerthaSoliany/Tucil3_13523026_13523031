@@ -78,7 +78,7 @@ public class Main {
                 List<Simpul> output = Algorithm.search(b, pilihan);
                 long endTime = System.nanoTime();
                 long duration = ((endTime-startTime)/1_000_000);
-                InputOutput.printOutput(b, output);
+                InputOutput.printOutput(b, output, duration);
 
                 InputOutput.writeFile(fileName, b, output, duration);
             } catch (IOException e) {
