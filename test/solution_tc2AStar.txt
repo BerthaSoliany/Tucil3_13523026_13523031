@@ -2,9 +2,11 @@ Solusi untuk tc2AStar.txt
 
 Dimensi papan: 6 x 6
 Jumlah piece selain P: 10
+Algoritma yang digunakan: A*
+Heuristik yang digunakan: Jumlah piece yang menghalangi
 
-Waktu penyelesaian: 179 ns
-Total simpul kondisi board yang ditelusuri: 47484
+Waktu penyelesaian: 548 ns
+Total simpul kondisi board yang ditelusuri: 153371
 
 Papan Awal
 AEE.H. 
@@ -14,84 +16,116 @@ AFGPPIK
 ..DJLL 
 ..DMM. 
 
-Gerakan 1: A sebanyak 3 petak ke bawah
-.EE.H. 
-.FG.HI 
-.FGPPIK
-A..J.I 
-A.DJLL 
-A.DMM. 
+Gerakan 1: I sebanyak 1 petak ke atas
+AEE.HI 
+AFG.HI 
+AFGPPIK
+...J.. 
+..DJLL 
+..DMM. 
 
-Gerakan 2: E sebanyak 1 petak ke kiri
-EE..H. 
-.FG.HI 
-.FGPPIK
-A..J.I 
-A.DJLL 
-A.DMM. 
+Gerakan 2: M sebanyak 1 petak ke kanan
+AEE.HI 
+AFG.HI 
+AFGPPIK
+...J.. 
+..DJLL 
+..D.MM 
 
-Gerakan 3: G sebanyak 1 petak ke atas
-EEG.H. 
-.FG.HI 
-.F.PPIK
-A..J.I 
-A.DJLL 
-A.DMM. 
+Gerakan 3: J sebanyak 1 petak ke bawah
+AEE.HI 
+AFG.HI 
+AFGPPIK
+...... 
+..DJLL 
+..DJMM 
 
-Gerakan 4: F sebanyak 2 petak ke bawah
-EEG.H. 
+Gerakan 4: A sebanyak 2 petak ke bawah
+.EE.HI 
+.FG.HI 
+AFGPPIK
+A..... 
+A.DJLL 
+..DJMM 
+
+Gerakan 5: E sebanyak 1 petak ke kiri
+EE..HI 
+.FG.HI 
+AFGPPIK
+A..... 
+A.DJLL 
+..DJMM 
+
+Gerakan 6: F sebanyak 2 petak ke bawah
+EE..HI 
 ..G.HI 
-...PPIK
-AF.J.I 
+A.GPPIK
+AF.... 
 AFDJLL 
-A.DMM. 
+..DJMM 
 
-Gerakan 5: P sebanyak 2 petak ke kiri
-EEG.H. 
+Gerakan 7: G sebanyak 1 petak ke atas
+EEG.HI 
 ..G.HI 
-.PP..IK
-AF.J.I 
+A..PPIK
+AF.... 
 AFDJLL 
-A.DMM. 
+..DJMM 
 
-Gerakan 6: J sebanyak 3 petak ke atas
-EEGJH. 
+Gerakan 8: P sebanyak 2 petak ke kiri
+EEG.HI 
+..G.HI 
+APP..IK
+AF.... 
+AFDJLL 
+..DJMM 
+
+Gerakan 9: J sebanyak 4 petak ke atas
+EEGJHI 
 ..GJHI 
-.PP..IK
-AF...I 
+APP..IK
+AF.... 
 AFD.LL 
-A.DMM. 
+..D.MM 
 
-Gerakan 7: P sebanyak 2 petak ke kanan
-EEGJH. 
+Gerakan 10: P sebanyak 2 petak ke kanan
+EEGJHI 
 ..GJHI 
-...PPIK
-AF...I 
+A..PPIK
+AF.... 
 AFD.LL 
-A.DMM. 
+..D.MM 
 
-Gerakan 8: L sebanyak 1 petak ke kiri
-EEGJH. 
+Gerakan 11: M sebanyak 1 petak ke kiri
+EEGJHI 
 ..GJHI 
-...PPIK
-AF...I 
+A..PPIK
+AF.... 
+AFD.LL 
+..DMM. 
+
+Gerakan 12: L sebanyak 1 petak ke kiri
+EEGJHI 
+..GJHI 
+A..PPIK
+AF.... 
 AFDLL. 
-A.DMM. 
+..DMM. 
 
-Gerakan 9: I sebanyak 2 petak ke bawah
+Gerakan 13: I sebanyak 3 petak ke bawah
 EEGJH. 
 ..GJH. 
-...PP.K
+A..PP.K
 AF...I 
 AFDLLI 
-A.DMMI 
+..DMMI 
 
-Gerakan 10: P sebanyak 1 petak ke kanan
+Gerakan 14: P sebanyak 1 petak ke kanan
 EEGJH. 
 ..GJH. 
-....PPK
+A...PPK
 AF...I 
 AFDLLI 
-A.DMMI 
+..DMMI 
 
 Solusi ditemukan! ^^

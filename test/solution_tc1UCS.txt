@@ -2,8 +2,10 @@ Solusi untuk tc1UCS.txt
 
 Dimensi papan: 6 x 6
 Jumlah piece selain P: 11
+Algoritma yang digunakan: UCS
+Heuristik yang digunakan: Tidak ada heuristik
 
-Waktu penyelesaian: 39 ns
+Waktu penyelesaian: 69 ns
 Total simpul kondisi board yang ditelusuri: 1636
 
 Papan Awal

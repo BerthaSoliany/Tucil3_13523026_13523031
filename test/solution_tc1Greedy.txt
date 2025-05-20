@@ -2,8 +2,10 @@ Solusi untuk tc1Greedy.txt
 
 Dimensi papan: 6 x 6
 Jumlah piece selain P: 11
+Algoritma yang digunakan: Greedy Best First Search
+Heuristik yang digunakan: Manhattan Distance ke pintu keluar
 
-Waktu penyelesaian: 28 ns
+Waktu penyelesaian: 27 ns
 Total simpul kondisi board yang ditelusuri: 268
 
 Papan Awal

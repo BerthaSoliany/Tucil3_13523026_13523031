@@ -2,9 +2,11 @@ Solusi untuk tc3Greedy.txt
 
 Dimensi papan: 6 x 6
 Jumlah piece selain P: 11
+Algoritma yang digunakan: Greedy Best First Search
+Heuristik yang digunakan: Manhattan Distance ke pintu keluar dan jumlah piece yang menghalangi
 
-Waktu penyelesaian: 16 ns
-Total simpul kondisi board yang ditelusuri: 44
+Waktu penyelesaian: 19 ns
+Total simpul kondisi board yang ditelusuri: 37
 
 Papan Awal
 PP.B.CK
@@ -14,39 +16,23 @@ FHH.E.
 ..JIIY 
 ..JMMY 
 
-Gerakan 1: P sebanyak 1 petak ke kanan
-.PPB.CK
-DD.BEC 
-FGGBEC 
-FHH.E. 
-..JIIY 
-..JMMY 
-
-Gerakan 2: B sebanyak 1 petak ke bawah
-.PP..CK
+Gerakan 1: B sebanyak 1 petak ke bawah
+PP...CK
 DD.BEC 
 FGGBEC 
 FHHBE. 
 ..JIIY 
 ..JMMY 
 
-Gerakan 3: P sebanyak 2 petak ke kanan
-...PPCK
-DD.BEC 
-FGGBEC 
-FHHBE. 
-..JIIY 
-..JMMY 
-
-Gerakan 4: C sebanyak 1 petak ke bawah
-...PP.K
+Gerakan 2: C sebanyak 1 petak ke bawah
+PP....K
 DD.BEC 
 FGGBEC 
 FHHBEC 
 ..JIIY 
 ..JMMY 
 
-Gerakan 5: P sebanyak 1 petak ke kanan
+Gerakan 3: P sebanyak 4 petak ke kanan
 ....PPK
 DD.BEC 
 FGGBEC 

@@ -2,8 +2,10 @@ Solusi untuk tc5AStar.txt
 
 Dimensi papan: 5 x 6
 Jumlah piece selain P: 6
+Algoritma yang digunakan: A*
+Heuristik yang digunakan: Jumlah piece yang menghalangi
 
-Waktu penyelesaian: 22 ns
+Waktu penyelesaian: 10 ns
 Total simpul kondisi board yang ditelusuri: 30
 
 Papan Awal

@@ -2,9 +2,11 @@ Solusi untuk tc2Greedy.txt
 
 Dimensi papan: 6 x 6
 Jumlah piece selain P: 10
+Algoritma yang digunakan: Greedy Best First Search
+Heuristik yang digunakan: Jumlah piece yang menghalangi
 
-Waktu penyelesaian: 127 ns
-Total simpul kondisi board yang ditelusuri: 30683
+Waktu penyelesaian: 315 ns
+Total simpul kondisi board yang ditelusuri: 49438
 
 Papan Awal
 AEE.H. 
@@ -14,692 +16,364 @@ AFGPPIK
 ..DJLL 
 ..DMM. 
 
-Gerakan 1: A sebanyak 1 petak ke bawah
-.EE.H. 
+Gerakan 1: I sebanyak 1 petak ke atas
+AEE.HI 
 AFG.HI 
 AFGPPIK
-A..J.I 
+...J.. 
 ..DJLL 
 ..DMM. 
 
-Gerakan 2: M sebanyak 1 petak ke kanan
-.EE.H. 
+Gerakan 2: A sebanyak 1 petak ke bawah
+.EE.HI 
 AFG.HI 
 AFGPPIK
-A..J.I 
+A..J.. 
+..DJLL 
+..DMM. 
+
+Gerakan 3: M sebanyak 1 petak ke kanan
+.EE.HI 
+AFG.HI 
+AFGPPIK
+A..J.. 
 ..DJLL 
 ..D.MM 
 
-Gerakan 3: F sebanyak 2 petak ke bawah
-.EE.H. 
-A.G.HI 
-A.GPPIK
-AF.J.I 
-.FDJLL 
-..D.MM 
-
-Gerakan 4: D sebanyak 1 petak ke atas
-.EE.H. 
-A.G.HI 
-A.GPPIK
-AFDJ.I 
-.FDJLL 
-....MM 
-
-Gerakan 5: M sebanyak 4 petak ke kiri
-.EE.H. 
-A.G.HI 
-A.GPPIK
-AFDJ.I 
-.FDJLL 
-MM.... 
-
-Gerakan 6: J sebanyak 1 petak ke bawah
-.EE.H. 
-A.G.HI 
-A.GPPIK
-AFD..I 
-.FDJLL 
-MM.J.. 
-
-Gerakan 7: F sebanyak 2 petak ke atas
-.EE.H. 
+Gerakan 4: J sebanyak 1 petak ke bawah
+.EE.HI 
 AFG.HI 
 AFGPPIK
-A.D..I 
+A..... 
 ..DJLL 
-MM.J.. 
+..DJMM 
 
-Gerakan 8: E sebanyak 1 petak ke kanan
-..EEH. 
-AFG.HI 
+Gerakan 5: A sebanyak 1 petak ke bawah
+.EE.HI 
+.FG.HI 
 AFGPPIK
-A.D..I 
-..DJLL 
-MM.J.. 
+A..... 
+A.DJLL 
+..DJMM 
+
+Gerakan 6: G sebanyak 1 petak ke bawah
+.EE.HI 
+.F..HI 
+AFGPPIK
+A.G... 
+A.DJLL 
+..DJMM 
+
+Gerakan 7: E sebanyak 1 petak ke kiri
+EE..HI 
+.F..HI 
+AFGPPIK
+A.G... 
+A.DJLL 
+..DJMM 
+
+Gerakan 8: G sebanyak 2 petak ke atas
+EEG.HI 
+.FG.HI 
+AF.PPIK
+A..... 
+A.DJLL 
+..DJMM 
 
 Gerakan 9: J sebanyak 1 petak ke atas
-..EEH. 
-AFG.HI 
-AFGPPIK
-A.DJ.I 
-..DJLL 
-MM.... 
-
-Gerakan 10: F sebanyak 1 petak ke bawah
-..EEH. 
-A.G.HI 
-AFGPPIK
-AFDJ.I 
-..DJLL 
-MM.... 
-
-Gerakan 11: D sebanyak 1 petak ke bawah
-..EEH. 
-A.G.HI 
-AFGPPIK
-AF.J.I 
-..DJLL 
-MMD... 
-
-Gerakan 12: J sebanyak 1 petak ke bawah
-..EEH. 
-A.G.HI 
-AFGPPIK
-AF...I 
-..DJLL 
-MMDJ.. 
-
-Gerakan 13: E sebanyak 2 petak ke kiri
-EE..H. 
-A.G.HI 
-AFGPPIK
-AF...I 
-..DJLL 
-MMDJ.. 
-
-Gerakan 14: G sebanyak 1 petak ke bawah
-EE..H. 
-A...HI 
-AFGPPIK
-AFG..I 
-..DJLL 
-MMDJ.. 
-
-Gerakan 15: J sebanyak 1 petak ke atas
-EE..H. 
-A...HI 
-AFGPPIK
-AFGJ.I 
-..DJLL 
-MMD... 
-
-Gerakan 16: I sebanyak 1 petak ke atas
-EE..HI 
-A...HI 
-AFGPPIK
-AFGJ.. 
-..DJLL 
-MMD... 
-
-Gerakan 17: G sebanyak 2 petak ke atas
 EEG.HI 
-A.G.HI 
+.FG.HI 
 AF.PPIK
-AF.J.. 
-..DJLL 
-MMD... 
-
-Gerakan 18: J sebanyak 1 petak ke bawah
-EEG.HI 
-A.G.HI 
-AF.PPIK
-AF.... 
-..DJLL 
-MMDJ.. 
-
-Gerakan 19: D sebanyak 2 petak ke atas
-EEG.HI 
-A.G.HI 
-AFDPPIK
-AFD... 
-...JLL 
-MM.J.. 
-
-Gerakan 20: F sebanyak 1 petak ke atas
-EEG.HI 
-AFG.HI 
-AFDPPIK
-A.D... 
-...JLL 
-MM.J.. 
-
-Gerakan 21: I sebanyak 1 petak ke bawah
-EEG.H. 
-AFG.HI 
-AFDPPIK
-A.D..I 
-...JLL 
-MM.J.. 
-
-Gerakan 22: J sebanyak 1 petak ke atas
-EEG.H. 
-AFG.HI 
-AFDPPIK
-A.DJ.I 
-...JLL 
-MM.... 
-
-Gerakan 23: M sebanyak 2 petak ke kanan
-EEG.H. 
-AFG.HI 
-AFDPPIK
-A.DJ.I 
-...JLL 
-..MM.. 
-
-Gerakan 24: I sebanyak 1 petak ke atas
-EEG.HI 
-AFG.HI 
-AFDPPIK
-A.DJ.. 
-...JLL 
-..MM.. 
-
-Gerakan 25: M sebanyak 1 petak ke kanan
-EEG.HI 
-AFG.HI 
-AFDPPIK
-A.DJ.. 
-...JLL 
-...MM. 
-
-Gerakan 26: D sebanyak 1 petak ke bawah
-EEG.HI 
-AFG.HI 
-AF.PPIK
-A.DJ.. 
-..DJLL 
-...MM. 
-
-Gerakan 27: M sebanyak 2 petak ke kiri
-EEG.HI 
-AFG.HI 
-AF.PPIK
-A.DJ.. 
-..DJLL 
-.MM... 
-
-Gerakan 28: I sebanyak 1 petak ke bawah
-EEG.H. 
-AFG.HI 
-AF.PPIK
-A.DJ.I 
-..DJLL 
-.MM... 
-
-Gerakan 29: G sebanyak 1 petak ke bawah
-EE..H. 
-AFG.HI 
-AFGPPIK
-A.DJ.I 
-..DJLL 
-.MM... 
-
-Gerakan 30: M sebanyak 3 petak ke kanan
-EE..H. 
-AFG.HI 
-AFGPPIK
-A.DJ.I 
-..DJLL 
-....MM 
-
-Gerakan 31: F sebanyak 3 petak ke bawah
-EE..H. 
-A.G.HI 
-A.GPPIK
-A.DJ.I 
-.FDJLL 
-.F..MM 
-
-Gerakan 32: M sebanyak 1 petak ke kiri
-EE..H. 
-A.G.HI 
-A.GPPIK
-A.DJ.I 
-.FDJLL 
-.F.MM. 
-
-Gerakan 33: F sebanyak 2 petak ke atas
-EE..H. 
-A.G.HI 
-AFGPPIK
-AFDJ.I 
-..DJLL 
-...MM. 
-
-Gerakan 34: M sebanyak 1 petak ke kiri
-EE..H. 
-A.G.HI 
-AFGPPIK
-AFDJ.I 
-..DJLL 
-..MM.. 
-
-Gerakan 35: E sebanyak 1 petak ke kanan
-.EE.H. 
-A.G.HI 
-AFGPPIK
-AFDJ.I 
-..DJLL 
-..MM.. 
-
-Gerakan 36: M sebanyak 1 petak ke kiri
-.EE.H. 
-A.G.HI 
-AFGPPIK
-AFDJ.I 
-..DJLL 
-.MM... 
-
-Gerakan 37: A sebanyak 2 petak ke bawah
-.EE.H. 
-..G.HI 
-.FGPPIK
-AFDJ.I 
+A..J.. 
 A.DJLL 
-AMM... 
+..D.MM 
 
-Gerakan 38: F sebanyak 1 petak ke bawah
-.EE.H. 
-..G.HI 
-..GPPIK
-AFDJ.I 
-AFDJLL 
-AMM... 
-
-Gerakan 39: M sebanyak 1 petak ke kanan
-.EE.H. 
-..G.HI 
-..GPPIK
-AFDJ.I 
-AFDJLL 
-A.MM.. 
-
-Gerakan 40: F sebanyak 1 petak ke bawah
-.EE.H. 
-..G.HI 
-..GPPIK
-A.DJ.I 
-AFDJLL 
-AFMM.. 
-
-Gerakan 41: I sebanyak 1 petak ke atas
-.EE.HI 
-..G.HI 
-..GPPIK
-A.DJ.. 
-AFDJLL 
-AFMM.. 
-
-Gerakan 42: F sebanyak 2 petak ke atas
-.EE.HI 
-..G.HI 
-.FGPPIK
-AFDJ.. 
-A.DJLL 
-A.MM.. 
-
-Gerakan 43: M sebanyak 1 petak ke kanan
-.EE.HI 
-..G.HI 
-.FGPPIK
-AFDJ.. 
-A.DJLL 
-A..MM. 
-
-Gerakan 44: E sebanyak 1 petak ke kanan
-..EEHI 
-..G.HI 
-.FGPPIK
-AFDJ.. 
-A.DJLL 
-A..MM. 
-
-Gerakan 45: M sebanyak 1 petak ke kanan
-..EEHI 
-..G.HI 
-.FGPPIK
-AFDJ.. 
-A.DJLL 
-A...MM 
-
-Gerakan 46: J sebanyak 1 petak ke bawah
-..EEHI 
-..G.HI 
-.FGPPIK
-AFD... 
-A.DJLL 
-A..JMM 
-
-Gerakan 47: I sebanyak 1 petak ke bawah
-..EEH. 
-..G.HI 
-.FGPPIK
-AFD..I 
-A.DJLL 
-A..JMM 
-
-Gerakan 48: F sebanyak 1 petak ke bawah
-..EEH. 
-..G.HI 
-..GPPIK
-AFD..I 
-AFDJLL 
-A..JMM 
-
-Gerakan 49: J sebanyak 1 petak ke atas
-..EEH. 
-..G.HI 
-..GPPIK
-AFDJ.I 
-AFDJLL 
-A...MM 
-
-Gerakan 50: M sebanyak 1 petak ke kiri
-..EEH. 
-..G.HI 
-..GPPIK
-AFDJ.I 
-AFDJLL 
-A..MM. 
-
-Gerakan 51: F sebanyak 1 petak ke bawah
-..EEH. 
-..G.HI 
-..GPPIK
-A.DJ.I 
-AFDJLL 
-AF.MM. 
-
-Gerakan 52: A sebanyak 1 petak ke atas
-..EEH. 
-..G.HI 
-A.GPPIK
-A.DJ.I 
-AFDJLL 
-.F.MM. 
-
-Gerakan 53: M sebanyak 1 petak ke kanan
-..EEH. 
-..G.HI 
-A.GPPIK
-A.DJ.I 
-AFDJLL 
-.F..MM 
-
-Gerakan 54: I sebanyak 1 petak ke atas
-..EEHI 
-..G.HI 
-A.GPPIK
-A.DJ.. 
-AFDJLL 
-.F..MM 
-
-Gerakan 55: F sebanyak 4 petak ke atas
-.FEEHI 
+Gerakan 10: P sebanyak 1 petak ke kiri
+EEG.HI 
 .FG.HI 
-A.GPPIK
-A.DJ.. 
+AFPP.IK
+A..J.. 
 A.DJLL 
-....MM 
+..D.MM 
 
-Gerakan 56: M sebanyak 4 petak ke kiri
-.FEEHI 
-.FG.HI 
-A.GPPIK
-A.DJ.. 
-A.DJLL 
-MM.... 
-
-Gerakan 57: J sebanyak 1 petak ke bawah
-.FEEHI 
-.FG.HI 
-A.GPPIK
-A.D... 
-A.DJLL 
-MM.J.. 
-
-Gerakan 58: M sebanyak 1 petak ke kanan
-.FEEHI 
-.FG.HI 
-A.GPPIK
-A.D... 
-A.DJLL 
-.MMJ.. 
-
-Gerakan 59: A sebanyak 1 petak ke bawah
-.FEEHI 
-.FG.HI 
-..GPPIK
-A.D... 
-A.DJLL 
-AMMJ.. 
-
-Gerakan 60: J sebanyak 1 petak ke atas
-.FEEHI 
-.FG.HI 
-..GPPIK
-A.DJ.. 
-A.DJLL 
-AMM... 
-
-Gerakan 61: M sebanyak 1 petak ke kanan
-.FEEHI 
-.FG.HI 
-..GPPIK
-A.DJ.. 
-A.DJLL 
-A.MM.. 
-
-Gerakan 62: I sebanyak 1 petak ke bawah
-.FEEH. 
-.FG.HI 
-..GPPIK
-A.DJ.I 
-A.DJLL 
-A.MM.. 
-
-Gerakan 63: F sebanyak 2 petak ke bawah
-..EEH. 
-..G.HI 
-.FGPPIK
-AFDJ.I 
-A.DJLL 
-A.MM.. 
-
-Gerakan 64: A sebanyak 1 petak ke atas
-..EEH. 
-..G.HI 
-AFGPPIK
-AFDJ.I 
-A.DJLL 
-..MM.. 
-
-Gerakan 65: I sebanyak 1 petak ke atas
-..EEHI 
-..G.HI 
-AFGPPIK
-AFDJ.. 
-A.DJLL 
-..MM.. 
-
-Gerakan 66: F sebanyak 1 petak ke bawah
-..EEHI 
-..G.HI 
-A.GPPIK
-AFDJ.. 
-AFDJLL 
-..MM.. 
-
-Gerakan 67: E sebanyak 2 petak ke kiri
-EE..HI 
-..G.HI 
-A.GPPIK
-AFDJ.. 
-AFDJLL 
-..MM.. 
-
-Gerakan 68: G sebanyak 1 petak ke atas
-EEG.HI 
-..G.HI 
-A..PPIK
-AFDJ.. 
-AFDJLL 
-..MM.. 
-
-Gerakan 69: M sebanyak 1 petak ke kiri
-EEG.HI 
-..G.HI 
-A..PPIK
-AFDJ.. 
-AFDJLL 
-.MM... 
-
-Gerakan 70: P sebanyak 1 petak ke kiri
+Gerakan 11: F sebanyak 3 petak ke bawah
 EEG.HI 
 ..G.HI 
 A.PP.IK
-AFDJ.. 
+A..J.. 
 AFDJLL 
-.MM... 
+.FD.MM 
 
-Gerakan 71: H sebanyak 2 petak ke bawah
-EEG..I 
-..G..I 
-A.PPHIK
-AFDJH. 
+Gerakan 12: A sebanyak 1 petak ke bawah
+EEG.HI 
+..G.HI 
+..PP.IK
+A..J.. 
 AFDJLL 
-.MM... 
+AFD.MM 
 
-Gerakan 72: M sebanyak 2 petak ke kanan
-EEG..I 
-..G..I 
-A.PPHIK
-AFDJH. 
+Gerakan 13: I sebanyak 1 petak ke bawah
+EEG.H. 
+..G.HI 
+..PP.IK
+A..J.I 
 AFDJLL 
-...MM. 
+AFD.MM 
 
-Gerakan 73: I sebanyak 1 petak ke bawah
+Gerakan 14: P sebanyak 2 petak ke kiri
+EEG.H. 
+..G.HI 
+PP...IK
+A..J.I 
+AFDJLL 
+AFD.MM 
+
+Gerakan 15: H sebanyak 1 petak ke bawah
 EEG... 
-..G..I 
-A.PPHIK
-AFDJHI 
+..G.HI 
+PP..HIK
+A..J.I 
 AFDJLL 
-...MM. 
+AFD.MM 
 
-Gerakan 74: M sebanyak 1 petak ke kanan
+Gerakan 16: D sebanyak 2 petak ke atas
 EEG... 
-..G..I 
-A.PPHIK
-AFDJHI 
-AFDJLL 
-....MM 
+..G.HI 
+PPD.HIK
+A.DJ.I 
+AF.JLL 
+AF..MM 
 
-Gerakan 75: J sebanyak 1 petak ke bawah
+Gerakan 17: J sebanyak 2 petak ke atas
 EEG... 
-..G..I 
-A.PPHIK
-AFD.HI 
-AFDJLL 
-...JMM 
-
-Gerakan 76: D sebanyak 1 petak ke bawah
-EEG... 
-..G..I 
-A.PPHIK
-AF..HI 
-AFDJLL 
-..DJMM 
-
-Gerakan 77: P sebanyak 1 petak ke kiri
-EEG... 
-..G..I 
-APP.HIK
-AF..HI 
-AFDJLL 
-..DJMM 
-
-Gerakan 78: J sebanyak 4 petak ke atas
-EEGJ.. 
-..GJ.I 
-APP.HIK
-AF..HI 
-AFD.LL 
-..D.MM 
-
-Gerakan 79: P sebanyak 1 petak ke kanan
-EEGJ.. 
-..GJ.I 
-A.PPHIK
-AF..HI 
-AFD.LL 
-..D.MM 
-
-Gerakan 80: F sebanyak 1 petak ke atas
-EEGJ.. 
-..GJ.I 
-AFPPHIK
-AF..HI 
-A.D.LL 
-..D.MM 
-
-Gerakan 81: H sebanyak 2 petak ke atas
-EEGJH. 
 ..GJHI 
+PPDJHIK
+A.D..I 
+AF..LL 
+AF..MM 
+
+Gerakan 18: M sebanyak 2 petak ke kiri
+EEG... 
+..GJHI 
+PPDJHIK
+A.D..I 
+AF..LL 
+AFMM.. 
+
+Gerakan 19: L sebanyak 2 petak ke kiri
+EEG... 
+..GJHI 
+PPDJHIK
+A.D..I 
+AFLL.. 
+AFMM.. 
+
+Gerakan 20: I sebanyak 2 petak ke bawah
+EEG... 
+..GJH. 
+PPDJH.K
+A.D..I 
+AFLL.I 
+AFMM.I 
+
+Gerakan 21: F sebanyak 1 petak ke atas
+EEG... 
+..GJH. 
+PPDJH.K
+AFD..I 
+AFLL.I 
+A.MM.I 
+
+Gerakan 22: L sebanyak 1 petak ke kanan
+EEG... 
+..GJH. 
+PPDJH.K
+AFD..I 
+AF.LLI 
+A.MM.I 
+
+Gerakan 23: D sebanyak 1 petak ke bawah
+EEG... 
+..GJH. 
+PP.JH.K
+AFD..I 
+AFDLLI 
+A.MM.I 
+
+Gerakan 24: J sebanyak 1 petak ke atas
+EEGJ.. 
+..GJH. 
+PP..H.K
+AFD..I 
+AFDLLI 
+A.MM.I 
+
+Gerakan 25: P sebanyak 2 petak ke kanan
+EEGJ.. 
+..GJH. 
+..PPH.K
+AFD..I 
+AFDLLI 
+A.MM.I 
+
+Gerakan 26: H sebanyak 1 petak ke atas
+EEGJH. 
+..GJH. 
+..PP..K
+AFD..I 
+AFDLLI 
+A.MM.I 
+
+Gerakan 27: A sebanyak 2 petak ke atas
+EEGJH. 
+A.GJH. 
+A.PP..K
+AFD..I 
+.FDLLI 
+..MM.I 
+
+Gerakan 28: F sebanyak 2 petak ke atas
+EEGJH. 
+AFGJH. 
+AFPP..K
+A.D..I 
+..DLLI 
+..MM.I 
+
+Gerakan 29: M sebanyak 1 petak ke kanan
+EEGJH. 
+AFGJH. 
+AFPP..K
+A.D..I 
+..DLLI 
+...MMI 
+
+Gerakan 30: D sebanyak 1 petak ke bawah
+EEGJH. 
+AFGJH. 
+AFPP..K
+A....I 
+..DLLI 
+..DMMI 
+
+Gerakan 31: I sebanyak 3 petak ke atas
+EEGJHI 
+AFGJHI 
 AFPP.IK
-AF...I 
-A.D.LL 
-..D.MM 
-
-Gerakan 82: P sebanyak 1 petak ke kanan
-EEGJH. 
-..GJHI 
-AF.PPIK
-AF...I 
-A.D.LL 
-..D.MM 
-
-Gerakan 83: L sebanyak 1 petak ke kiri
-EEGJH. 
-..GJHI 
-AF.PPIK
-AF...I 
-A.DLL. 
-..D.MM 
-
-Gerakan 84: M sebanyak 1 petak ke kiri
-EEGJH. 
-..GJHI 
-AF.PPIK
-AF...I 
-A.DLL. 
+A..... 
+..DLL. 
 ..DMM. 
 
-Gerakan 85: I sebanyak 2 petak ke bawah
-EEGJH. 
-..GJH. 
-AF.PP.K
-AF...I 
-A.DLLI 
-..DMMI 
+Gerakan 32: P sebanyak 1 petak ke kanan
+EEGJHI 
+AFGJHI 
+AF.PPIK
+A..... 
+..DLL. 
+..DMM. 
 
-Gerakan 86: P sebanyak 1 petak ke kanan
-EEGJH. 
-..GJH. 
-AF..PPK
-AF...I 
-A.DLLI 
-..DMMI 
+Gerakan 33: D sebanyak 1 petak ke atas
+EEGJHI 
+AFGJHI 
+AF.PPIK
+A.D... 
+..DLL. 
+...MM. 
+
+Gerakan 34: F sebanyak 1 petak ke bawah
+EEGJHI 
+A.GJHI 
+AF.PPIK
+AFD... 
+..DLL. 
+...MM. 
+
+Gerakan 35: M sebanyak 1 petak ke kanan
+EEGJHI 
+A.GJHI 
+AF.PPIK
+AFD... 
+..DLL. 
+....MM 
+
+Gerakan 36: D sebanyak 1 petak ke atas
+EEGJHI 
+A.GJHI 
+AFDPPIK
+AFD... 
+...LL. 
+....MM 
+
+Gerakan 37: L sebanyak 3 petak ke kiri
+EEGJHI 
+A.GJHI 
+AFDPPIK
+AFD... 
+LL.... 
+....MM 
+
+Gerakan 38: D sebanyak 1 petak ke bawah
+EEGJHI 
+A.GJHI 
+AF.PPIK
+AFD... 
+LLD... 
+....MM 
+
+Gerakan 39: G sebanyak 1 petak ke bawah
+EE.JHI 
+A.GJHI 
+AFGPPIK
+AFD... 
+LLD... 
+....MM 
+
+Gerakan 40: E sebanyak 1 petak ke kanan
+.EEJHI 
+A.GJHI 
+AFGPPIK
+AFD... 
+LLD... 
+....MM 
+
+Gerakan 41: M sebanyak 4 petak ke kiri
+.EEJHI 
+A.GJHI 
+AFGPPIK
+AFD... 
+LLD... 
+MM.... 
+
+Gerakan 42: D sebanyak 1 petak ke bawah
+.EEJHI 
+A.GJHI 
+AFGPPIK
+AF.... 
+LLD... 
+MMD... 
+
+Gerakan 43: G sebanyak 1 petak ke bawah
+.EEJHI 
+A..JHI 
+AFGPPIK
+AFG... 
+LLD... 
+MMD... 
+
+Gerakan 44: I sebanyak 3 petak ke bawah
+.EEJH. 
+A..JH. 
+AFGPP.K
+AFG..I 
+LLD..I 
+MMD..I 
+
+Gerakan 45: P sebanyak 1 petak ke kanan
+.EEJH. 
+A..JH. 
+AFG.PPK
+AFG..I 
+LLD..I 
+MMD..I 
 
 Solusi ditemukan! ^^

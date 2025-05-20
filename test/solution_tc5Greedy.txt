@@ -2,8 +2,10 @@ Solusi untuk tc5Greedy.txt
 
 Dimensi papan: 5 x 6
 Jumlah piece selain P: 6
+Algoritma yang digunakan: Greedy Best First Search
+Heuristik yang digunakan: Jumlah piece yang menghalangi
 
-Waktu penyelesaian: 17 ns
+Waktu penyelesaian: 8 ns
 Total simpul kondisi board yang ditelusuri: 30
 
 Papan Awal

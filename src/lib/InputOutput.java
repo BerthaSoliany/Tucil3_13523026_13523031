@@ -231,7 +231,7 @@ public class InputOutput {
                     save.write("Manhattan Distance ke pintu keluar dan jumlah piece yang menghalangi\n");
                     break;
                 default:
-                    save.write("Tidak ada heuristik.\n");
+                    save.write("Tidak ada heuristik\n");
                     break;
             }
             save.write("\nWaktu penyelesaian: "+timeSpent+" ns\n");

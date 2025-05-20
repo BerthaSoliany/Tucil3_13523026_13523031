@@ -2,8 +2,10 @@ Solusi untuk tc5UCS.txt
 
 Dimensi papan: 5 x 6
 Jumlah piece selain P: 6
+Algoritma yang digunakan: UCS
+Heuristik yang digunakan: Tidak ada heuristik
 
-Waktu penyelesaian: 16 ns
+Waktu penyelesaian: 8 ns
 Total simpul kondisi board yang ditelusuri: 30
 
 Papan Awal

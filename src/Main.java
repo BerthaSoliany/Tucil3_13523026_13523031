@@ -80,10 +80,10 @@ public class Main {
                 int heuristic = 0;
                 switch (pilihan) {
                     case 1:
-                        System.out.println("\nPilihan pertama dipilih: menggunakan algoritma UCS");
+                        System.out.println("\nPilihan pertama dipilih: menggunakan algoritma UCS\n");
                         break;
                     case 2:
-                        System.out.println("\nPilihan kedua dipilih: menggunakan algoritma Greedy Best First Search");
+                        System.out.println("\nPilihan kedua dipilih: menggunakan algoritma Greedy Best First Search\n");
                         System.out.println("Pilih heuristik yang digunakan: ");
                         System.out.println("1. Manhattan Distance ke pintu keluar");
                         System.out.println("2. Jumlah piece yang menghalangi");
@@ -98,7 +98,7 @@ public class Main {
                                 if (heuristic >= 1 && heuristic <= 4) {
                                     validInput2 = true;
                                 } else {
-                                    System.out.println("Pilihan tidak valid, pastikan pilihan antara 1-4\n");
+                                    System.out.println("Pilihan tidak valid, pastikan pilihan antara 1-4");
                                 }
                             } catch (NumberFormatException e) {
                                 System.out.println("Input harus berupa angka.\n");
@@ -118,7 +118,7 @@ public class Main {
                         }
                         break;
                     case 3:
-                        System.out.println("\nPilihan ketiga dipilih: menggunakan algoritma A*");
+                        System.out.println("\nPilihan ketiga dipilih: menggunakan algoritma A*\n");
                         System.out.println("Pilih heuristik yang digunakan: ");
                         System.out.println("1. Manhattan Distance ke pintu keluar");
                         System.out.println("2. Jumlah piece yang menghalangi");
@@ -133,7 +133,7 @@ public class Main {
                                 if (heuristic >= 1 && heuristic <= 4) {
                                     validInput3 = true;
                                 } else {
-                                    System.out.println("Pilihan tidak valid, pastikan pilihan antara 1-4\n");
+                                    System.out.println("Pilihan tidak valid, pastikan pilihan antara 1-4");
                                 }
                             } catch (NumberFormatException e) {
                                 System.out.println("Input harus berupa angka.\n");

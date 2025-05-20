@@ -2,8 +2,10 @@ Solusi untuk tc1AStar.txt
 
 Dimensi papan: 6 x 6
 Jumlah piece selain P: 11
+Algoritma yang digunakan: A*
+Heuristik yang digunakan: Manhattan Distance ke pintu keluar
 
-Waktu penyelesaian: 45 ns
+Waktu penyelesaian: 53 ns
 Total simpul kondisi board yang ditelusuri: 1163
 
 Papan Awal
