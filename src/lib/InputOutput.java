@@ -1,6 +1,5 @@
 package lib;
 
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -157,7 +156,7 @@ public class InputOutput {
                     loc[i][1] = locs.get(i)[1];
                 }
 
-                if (width != 1 && height != 1) {
+                if ((width != 1 && height != 1) || (width == 1 && height == 1)) {
                     br.close();
                     throw new IOException("Piece "+id+" dengan ukuran "+width+" x "+height+" tidak valid.");
                 }
@@ -184,11 +183,12 @@ public class InputOutput {
         try{
             fileName = "test\\" + "solution_"+fileName;
             FileWriter save = new FileWriter(fileName);
-            save.write("Solusi untuk "+fileName.substring(14)+"\n\n"); // fileName adalah fileName input
+            save.write("Solusi untuk "+fileName.substring(14)+"\n\n");
             save.write("Dimensi papan: "+awal.getHeight()+" x "+awal.getWidth()+"\n");
             save.write("Jumlah piece selain P: "+awal.getTotalPieces()+"\n");
             save.write("\nWaktu penyelesaian: "+timeSpent+" ns\n");
             save.write("Total gerakan yang dilakukan: "+output.size()+"\n\n");
+            
             // print ke file untuk papan awal
             save.write("Papan Awal\n");
             if (awal.getExitLoc()[0]==-1){
@@ -345,30 +345,41 @@ public class InputOutput {
         }
     }
 
-    public static void printOutput(Board awal, List<Simpul> output, long d, Map<Simpul, Simpul> parentMap) {
+    public static void printOutput(List<Simpul> output, long d, Map<Simpul, Simpul> parentMap) {
         System.out.println();
-System.out.println("            __         _");
-System.out.println("  ___ ___  / /_ _____ (_)");
-System.out.println(" (_-</ _ \\/ / // (_-</ /"); 
-System.out.println("/___/\\___/_/\\_,_/___/_/");  
+        System.out.println("               __         _");
+        System.out.println("     ___ ___  / /_ _____ (_)");
+        System.out.println("    (_-</ _ \\/ / // (_-</ /"); 
+        System.out.println("   /___/\\___/_/\\_,_/___/_/");  
                         
         System.out.println("Waktu penyelesaian: "+d+" ns");
-        System.out.println("Total gerakan yang dilakukan: "+output.size()+"\n");
-        System.out.println("Papan awal:");
-        awal.displayBoard();
+
+        int gerakan;
+        if (output.isEmpty()) {
+            gerakan = 0;
+        } else {
+            gerakan = output.size() - 1;
+        }
+        System.out.println("Total gerakan yang dilakukan: "+Algorithm.getVisitedCount()+"\n");
 
         if (output.isEmpty()) {
             System.out.println("Tidak ditemukan solusi... :(");
             return;
         }
 
-        if (output.get(0).getIdPiece() == '-') {
+        if (output.get(0).getIdPiece() == '-' && output.size() == 1) {
             System.out.println("Papan sudah dalam kondisi menang.");
             return;
         }
 
         int counter = 1;
         for (Simpul s : output) {
+            if (s.getIdPiece() == '-') {
+                System.out.println("Kondisi awal papan:");
+                s.getBoard().displayBoard();
+                continue;
+            }
+
             Board board = s.getBoard();
             Piece piece = s.getBoard().getPiece(s.getIdPiece());
             
@@ -388,12 +399,9 @@ System.out.println("/___/\\___/_/\\_,_/___/_/");
             }
 
             System.out.println("Gerakan " + counter++ + ": " + s.getIdPiece() + " sebanyak " + Math.abs(s.getMoveValue()) + " petak ke " + direction);
-            if (parentMap.get(s) != null) {
-                board.displayBoardForOutput(s.getIdPiece(), parentMap.get(s).getBoard());
-            } else {
-                board.displayBoardForOutput(s.getIdPiece(), awal);
-            }
+            board.displayBoardForOutput(s.getIdPiece(), parentMap.get(s).getBoard());
         }
-    }
-    
+
+        System.out.println("Solusi ditemukan! ^^");
+    } 
 }

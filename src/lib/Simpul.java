@@ -6,13 +6,6 @@ public class Simpul {
     int moveValue;
     int cost;
 
-    // buat output:
-    // dari idPiece --> dapet huruf sama orientasi
-    // dari moveValue --> dapet nilai move
-    // contoh: piece vertikal move -1, berarti 1 ke atas
-
-    // kalau "-" untuk idPiece --> berarti dari awal udh win solution
-
     // constructor
     public Simpul(Board board, char idPiece, int moveValue, int cost) {
         this.board = board;

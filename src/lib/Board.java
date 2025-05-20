@@ -12,7 +12,6 @@ public class Board {
     private int[] exitLoc; // pintu keluar
     private char[][] board; // untuk memetakan pieces (mainly untuk kebutuhan output dan cek apakah keluar dr board atau enggak)
     private Piece[] pieces; // 
-    private int totalStep=0; // untuk menghitung banyak step. ini jadi static oke jg sih
 
     public Board(){}
 
@@ -38,7 +37,6 @@ public class Board {
     public int[] getExitLoc(){return exitLoc;}
     public char[][] getBoard(){return board;}
     public Piece[] getPieces(){return pieces;}
-    public int getTotalStep(){return totalStep;}
     public Piece getPiece(char id){
         for (int i = 0; i < pieces.length; i++) {
             if (pieces[i].getId() == id) {
@@ -54,9 +52,6 @@ public class Board {
     public void setExitLoc(int[] loc){exitLoc=loc;}
     public void setBoard(char[][] b){board=b;}
     public void setPieces(Piece[] p){pieces=p;}
-    public void setTotalStep(int s){totalStep=s;}
-
-    public void totalStepIncrement(){totalStep++;}
 
     public void printBoard(){
         System.out.println(Arrays.deepToString(board));
@@ -65,7 +60,6 @@ public class Board {
     public void displayBoard() {
         String reset = "\u001B[0m";
         String yellow = "\u001B[33m";
-        String red = "\u001B[31m";
         String green = "\u001B[32m";
 
         if (exitLoc[0]==-1){
@@ -412,14 +406,8 @@ public class Board {
         if (o == null || getClass() != o.getClass()) return false;
         Board other = (Board) o;
 
-        // Compare pieces' positions.  This is the MOST important part.
+        // Compare pieces' positions
         if (!Arrays.equals(this.pieces, other.pieces)) return false;
-
-        // // It's good practice to also compare these, even if they're often constant:
-        // if (width != other.width) return false;
-        // if (height != other.height) return false;
-        // if (totalPieces != other.totalPieces) return false;
-        // if (!Arrays.equals(exitLoc, other.exitLoc)) return false;
 
         return true;
     }
