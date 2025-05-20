@@ -197,13 +197,43 @@ public class InputOutput {
 
     }
 
-    public static void writeFile(String fileName, Board awal, List<Simpul> output, long timeSpent){
+    public static void writeFile(String fileName, Board awal, List<Simpul> output, long timeSpent, int algorithm, int heuristic){
         try{
             fileName = "test" + File.separator + "solution_"+fileName;
             FileWriter save = new FileWriter(fileName);
             save.write("Solusi untuk "+fileName.substring(14)+"\n\n");
             save.write("Dimensi papan: "+awal.getHeight()+" x "+awal.getWidth()+"\n");
             save.write("Jumlah piece selain P: "+awal.getTotalPieces()+"\n");
+            save.write("Algoritma yang digunakan: ");
+            switch (algorithm) {
+                case 1:
+                    save.write("UCS\n");
+                    break;
+                case 2:
+                    save.write("Greedy Best First Search\n");
+                    break;
+                case 3:
+                    save.write("A*\n");
+                    break;
+                default:
+                    save.write("Algoritma tidak valid.\n");
+                    break;
+            }
+            save.write("Heuristik yang digunakan: ");
+            switch (heuristic) {
+                case 1:
+                    save.write("Manhattan Distance ke pintu keluar\n");
+                    break;
+                case 2:
+                    save.write("Jumlah piece yang menghalangi\n");
+                    break;
+                case 3:
+                    save.write("Manhattan Distance ke pintu keluar dan jumlah piece yang menghalangi\n");
+                    break;
+                default:
+                    save.write("Tidak ada heuristik.\n");
+                    break;
+            }
             save.write("\nWaktu penyelesaian: "+timeSpent+" ns\n");
             save.write("Total simpul kondisi board yang ditelusuri: "+Algorithm.getVisitedCount()+"\n\n");
             

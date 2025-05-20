@@ -15,7 +15,7 @@ public class Algorithm {
         return visitedCount;
     }
 
-    public static List<Simpul> search(Board board, int algorithm) {
+    public static List<Simpul> search(Board board, int algorithm, int heuristic) {
         PriorityQueue<Simpul> queue = new PriorityQueue<>(Comparator.comparingInt(Simpul::getCost));
         Set<Board> visited = new HashSet<>();
         Map<Board, Integer> costMap = new HashMap<>();
@@ -47,7 +47,7 @@ public class Algorithm {
                 // kalau board sudah pernah diperiksa, maka cost saat ini pasti lebih besar, bisa langsung di skip
                 if (!visited.contains(neighborBoard)) {
                     int newCost = costMap.get(currentBoard) + 1;
-                    newCost = getHeuristicCost(neighborBoard, algorithm, newCost);
+                    newCost = getHeuristicCost(neighborBoard, algorithm, newCost, heuristic);
 
                     // !costMap.containsKey(neighborBoard) hanya guard untuk memastikan costMap.get(neighborBoard) tidak null
                     if (!costMap.containsKey(neighborBoard) || newCost < costMap.get(neighborBoard)) {
@@ -75,14 +75,14 @@ public class Algorithm {
         return path;
     }
 
-    private static int getHeuristicCost(Board board, int algorithm, int UCScost) {
+    private static int getHeuristicCost(Board board, int algorithm, int UCScost, int heuristic) {
         switch (algorithm) {
             case 1: // UCS
                 return UCScost;
             case 2: // greedy
-                return Heuristic.manhattanDistance(board, 'P');
+                return Heuristic.getChoosenHeuristic(board, heuristic);
             case 3: // A*
-                return UCScost + Heuristic.manhattanDistance(board, 'P');
+                return UCScost + Heuristic.getChoosenHeuristic(board, heuristic);
             default:
                 return 0;
         }

@@ -77,15 +77,80 @@ public class Main {
                     }
                 }
 
+                int heuristic = 0;
                 switch (pilihan) {
                     case 1:
-                        System.out.println("Pilihan pertama dipilih: menggunakan algoritma UCS");
+                        System.out.println("\nPilihan pertama dipilih: menggunakan algoritma UCS");
                         break;
                     case 2:
-                        System.out.println("Pilihan kedua dipilih: menggunakan algoritma Greedy Best First Search");
+                        System.out.println("\nPilihan kedua dipilih: menggunakan algoritma Greedy Best First Search");
+                        System.out.println("Pilih heuristik yang digunakan: ");
+                        System.out.println("1. Manhattan Distance ke pintu keluar");
+                        System.out.println("2. Jumlah piece yang menghalangi");
+                        System.out.println("3. Keduanya");
+                        System.out.println("4. Kembali ke menu utama");
+                        System.out.println("Pilihan: ");
+                        boolean validInput2 = false;
+                        while (!validInput2) {
+                            String choice = sc.nextLine();
+                            try {
+                                heuristic = Integer.parseInt(choice);
+                                if (heuristic >= 1 && heuristic <= 4) {
+                                    validInput2 = true;
+                                } else {
+                                    System.out.println("Pilihan tidak valid, pastikan pilihan antara 1-4\n");
+                                }
+                            } catch (NumberFormatException e) {
+                                System.out.println("Input harus berupa angka.\n");
+                            }
+                        }
+                        if (heuristic == 4) {
+                            program();
+                        } else {
+                            System.out.print("\nHeuristik yang dipilih: ");
+                            if (heuristic == 1) {
+                                System.out.println("Manhattan Distance ke pintu keluar");
+                            } else if (heuristic == 2) {
+                                System.out.println("Jumlah piece yang menghalangi");
+                            } else if (heuristic == 3) {
+                                System.out.println("Keduanya");
+                            }
+                        }
                         break;
                     case 3:
-                        System.out.println("Pilihan ketiga dipilih: menggunakan algoritma A*");
+                        System.out.println("\nPilihan ketiga dipilih: menggunakan algoritma A*");
+                        System.out.println("Pilih heuristik yang digunakan: ");
+                        System.out.println("1. Manhattan Distance ke pintu keluar");
+                        System.out.println("2. Jumlah piece yang menghalangi");
+                        System.out.println("3. Keduanya");
+                        System.out.println("4. Kembali ke menu utama");
+                        System.out.println("Pilihan: ");
+                        boolean validInput3 = false;
+                        while (!validInput3) {
+                            String choice = sc.nextLine();
+                            try {
+                                heuristic = Integer.parseInt(choice);
+                                if (heuristic >= 1 && heuristic <= 4) {
+                                    validInput3 = true;
+                                } else {
+                                    System.out.println("Pilihan tidak valid, pastikan pilihan antara 1-4\n");
+                                }
+                            } catch (NumberFormatException e) {
+                                System.out.println("Input harus berupa angka.\n");
+                            }
+                        }
+                        if (heuristic == 4) {
+                            program();
+                        } else {
+                            System.out.print("\nHeuristik yang dipilih: ");
+                            if (heuristic == 1) {
+                                System.out.println("Manhattan Distance ke pintu keluar");
+                            } else if (heuristic == 2) {
+                                System.out.println("Jumlah piece yang menghalangi");
+                            } else if (heuristic == 3) {
+                                System.out.println("Keduanya");
+                            }
+                        }
                         break;
                     case 4:
                         System.out.println("Bye bye~");
@@ -93,12 +158,13 @@ public class Main {
                 }
 
                 long startTime = System.nanoTime();
-                List<Simpul> output = Algorithm.search(b, pilihan);
+                List<Simpul> output = Algorithm.search(b, pilihan, heuristic);
                 Map<Simpul, Simpul> parent = Algorithm.getParent();
                 long endTime = System.nanoTime();
                 long duration = ((endTime-startTime)/1_000_000);
                 InputOutput.printOutput(output, duration, parent);
-                InputOutput.writeFile(fileName, b, output, duration);
+                InputOutput.writeFile(fileName, b, output, duration, pilihan, heuristic);
+                System.out.println("Berhasil menyimpan output ke dalam file test\\solution_"+fileName+"\n");
 
             } catch (IOException e) {
                 program();
