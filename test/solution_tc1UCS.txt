@@ -1,13 +1,57 @@
 Solusi untuk tc1UCS.txt
 
-Dimensi papan: 3 x 3
-Jumlah piece selain P: 1
+Dimensi papan: 6 x 6
+Jumlah piece selain P: 11
 
-Waktu penyelesaian: 8 ns
-Total gerakan yang dilakukan: 0
+Waktu penyelesaian: 39 ns
+Total simpul kondisi board yang ditelusuri: 1636
 
 Papan Awal
-P.. 
-.A. 
-.A.K
-Tidak ditemukan solusi... :(
+AAB..F 
+..BCDF 
+GPPCDFK
+GH.III 
+GHJ... 
+LLJMM. 
+
+Gerakan 1: C sebanyak 1 petak ke atas
+AABC.F 
+..BCDF 
+GPP.DFK
+GH.III 
+GHJ... 
+LLJMM. 
+
+Gerakan 2: I sebanyak 1 petak ke kiri
+AABC.F 
+..BCDF 
+GPP.DFK
+GHIII. 
+GHJ... 
+LLJMM. 
+
+Gerakan 3: F sebanyak 3 petak ke bawah
+AABC.. 
+..BCD. 
+GPP.D.K
+GHIIIF 
+GHJ..F 
+LLJMMF 
+
+Gerakan 4: D sebanyak 1 petak ke atas
+AABCD. 
+..BCD. 
+GPP...K
+GHIIIF 
+GHJ..F 
+LLJMMF 
+
+Gerakan 5: P sebanyak 3 petak ke kanan
+AABCD. 
+..BCD. 
+G...PPK
+GHIIIF 
+GHJ..F 
+LLJMMF 
+
+Solusi ditemukan! ^^

@@ -1,0 +1,57 @@
+Solusi untuk tc3Greedy.txt
+
+Dimensi papan: 6 x 6
+Jumlah piece selain P: 11
+
+Waktu penyelesaian: 16 ns
+Total simpul kondisi board yang ditelusuri: 44
+
+Papan Awal
+PP.B.CK
+DD.BEC 
+FGGBEC 
+FHH.E. 
+..JIIY 
+..JMMY 
+
+Gerakan 1: P sebanyak 1 petak ke kanan
+.PPB.CK
+DD.BEC 
+FGGBEC 
+FHH.E. 
+..JIIY 
+..JMMY 
+
+Gerakan 2: B sebanyak 1 petak ke bawah
+.PP..CK
+DD.BEC 
+FGGBEC 
+FHHBE. 
+..JIIY 
+..JMMY 
+
+Gerakan 3: P sebanyak 2 petak ke kanan
+...PPCK
+DD.BEC 
+FGGBEC 
+FHHBE. 
+..JIIY 
+..JMMY 
+
+Gerakan 4: C sebanyak 1 petak ke bawah
+...PP.K
+DD.BEC 
+FGGBEC 
+FHHBEC 
+..JIIY 
+..JMMY 
+
+Gerakan 5: P sebanyak 1 petak ke kanan
+....PPK
+DD.BEC 
+FGGBEC 
+FHHBEC 
+..JIIY 
+..JMMY 
+
+Solusi ditemukan! ^^

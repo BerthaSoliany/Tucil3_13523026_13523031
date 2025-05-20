@@ -1,10 +1,10 @@
-Solusi untuk tc3UCS.txt
+Solusi untuk tc3AStar.txt
 
 Dimensi papan: 6 x 6
 Jumlah piece selain P: 11
 
-Waktu penyelesaian: 33 ns
-Total simpul kondisi board yang ditelusuri: 1507
+Waktu penyelesaian: 23 ns
+Total simpul kondisi board yang ditelusuri: 374
 
 Papan Awal
 PP.B.CK
@@ -22,15 +22,23 @@ FHHBE.
 ..JIIY 
 ..JMMY 
 
-Gerakan 2: C sebanyak 1 petak ke bawah
-PP....K
+Gerakan 2: P sebanyak 3 petak ke kanan
+...PPCK
+DD.BEC 
+FGGBEC 
+FHHBE. 
+..JIIY 
+..JMMY 
+
+Gerakan 3: C sebanyak 1 petak ke bawah
+...PP.K
 DD.BEC 
 FGGBEC 
 FHHBEC 
 ..JIIY 
 ..JMMY 
 
-Gerakan 3: P sebanyak 4 petak ke kanan
+Gerakan 4: P sebanyak 1 petak ke kanan
 ....PPK
 DD.BEC 
 FGGBEC 

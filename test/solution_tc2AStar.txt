@@ -1,0 +1,97 @@
+Solusi untuk tc2AStar.txt
+
+Dimensi papan: 6 x 6
+Jumlah piece selain P: 10
+
+Waktu penyelesaian: 179 ns
+Total simpul kondisi board yang ditelusuri: 47484
+
+Papan Awal
+AEE.H. 
+AFG.HI 
+AFGPPIK
+...J.I 
+..DJLL 
+..DMM. 
+
+Gerakan 1: A sebanyak 3 petak ke bawah
+.EE.H. 
+.FG.HI 
+.FGPPIK
+A..J.I 
+A.DJLL 
+A.DMM. 
+
+Gerakan 2: E sebanyak 1 petak ke kiri
+EE..H. 
+.FG.HI 
+.FGPPIK
+A..J.I 
+A.DJLL 
+A.DMM. 
+
+Gerakan 3: G sebanyak 1 petak ke atas
+EEG.H. 
+.FG.HI 
+.F.PPIK
+A..J.I 
+A.DJLL 
+A.DMM. 
+
+Gerakan 4: F sebanyak 2 petak ke bawah
+EEG.H. 
+..G.HI 
+...PPIK
+AF.J.I 
+AFDJLL 
+A.DMM. 
+
+Gerakan 5: P sebanyak 2 petak ke kiri
+EEG.H. 
+..G.HI 
+.PP..IK
+AF.J.I 
+AFDJLL 
+A.DMM. 
+
+Gerakan 6: J sebanyak 3 petak ke atas
+EEGJH. 
+..GJHI 
+.PP..IK
+AF...I 
+AFD.LL 
+A.DMM. 
+
+Gerakan 7: P sebanyak 2 petak ke kanan
+EEGJH. 
+..GJHI 
+...PPIK
+AF...I 
+AFD.LL 
+A.DMM. 
+
+Gerakan 8: L sebanyak 1 petak ke kiri
+EEGJH. 
+..GJHI 
+...PPIK
+AF...I 
+AFDLL. 
+A.DMM. 
+
+Gerakan 9: I sebanyak 2 petak ke bawah
+EEGJH. 
+..GJH. 
+...PP.K
+AF...I 
+AFDLLI 
+A.DMMI 
+
+Gerakan 10: P sebanyak 1 petak ke kanan
+EEGJH. 
+..GJH. 
+....PPK
+AF...I 
+AFDLLI 
+A.DMMI 
+
+Solusi ditemukan! ^^

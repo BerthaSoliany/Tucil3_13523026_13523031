@@ -1,0 +1,121 @@
+Solusi untuk tc1Greedy.txt
+
+Dimensi papan: 6 x 6
+Jumlah piece selain P: 11
+
+Waktu penyelesaian: 28 ns
+Total simpul kondisi board yang ditelusuri: 268
+
+Papan Awal
+AAB..F 
+..BCDF 
+GPPCDFK
+GH.III 
+GHJ... 
+LLJMM. 
+
+Gerakan 1: C sebanyak 1 petak ke atas
+AABC.F 
+..BCDF 
+GPP.DFK
+GH.III 
+GHJ... 
+LLJMM. 
+
+Gerakan 2: P sebanyak 1 petak ke kanan
+AABC.F 
+..BCDF 
+G.PPDFK
+GH.III 
+GHJ... 
+LLJMM. 
+
+Gerakan 3: D sebanyak 1 petak ke atas
+AABCDF 
+..BCDF 
+G.PP.FK
+GH.III 
+GHJ... 
+LLJMM. 
+
+Gerakan 4: P sebanyak 1 petak ke kanan
+AABCDF 
+..BCDF 
+G..PPFK
+GH.III 
+GHJ... 
+LLJMM. 
+
+Gerakan 5: B sebanyak 1 petak ke bawah
+AA.CDF 
+..BCDF 
+G.BPPFK
+GH.III 
+GHJ... 
+LLJMM. 
+
+Gerakan 6: H sebanyak 2 petak ke atas
+AA.CDF 
+.HBCDF 
+GHBPPFK
+G..III 
+G.J... 
+LLJMM. 
+
+Gerakan 7: M sebanyak 1 petak ke kanan
+AA.CDF 
+.HBCDF 
+GHBPPFK
+G..III 
+G.J... 
+LLJ.MM 
+
+Gerakan 8: I sebanyak 2 petak ke kiri
+AA.CDF 
+.HBCDF 
+GHBPPFK
+GIII.. 
+G.J... 
+LLJ.MM 
+
+Gerakan 9: F sebanyak 2 petak ke bawah
+AA.CD. 
+.HBCD. 
+GHBPPFK
+GIII.F 
+G.J..F 
+LLJ.MM 
+
+Gerakan 10: M sebanyak 1 petak ke kiri
+AA.CD. 
+.HBCD. 
+GHBPPFK
+GIII.F 
+G.J..F 
+LLJMM. 
+
+Gerakan 11: G sebanyak 1 petak ke atas
+AA.CD. 
+GHBCD. 
+GHBPPFK
+GIII.F 
+..J..F 
+LLJMM. 
+
+Gerakan 12: F sebanyak 1 petak ke bawah
+AA.CD. 
+GHBCD. 
+GHBPP.K
+GIII.F 
+..J..F 
+LLJMMF 
+
+Gerakan 13: P sebanyak 1 petak ke kanan
+AA.CD. 
+GHBCD. 
+GHB.PPK
+GIII.F 
+..J..F 
+LLJMMF 
+
+Solusi ditemukan! ^^

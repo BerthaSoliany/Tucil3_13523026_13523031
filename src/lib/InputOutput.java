@@ -1,5 +1,6 @@
 package lib;
 
+import java.io.File;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -9,7 +10,7 @@ import java.util.*;
 public class InputOutput {
     public static void readFile(String fileName, Board b) throws IOException{
         try {
-            fileName = "test\\" + fileName;
+            fileName = "test" + File.separator + fileName;
             // BARIS X KOLOM
             int A,B,N;
 
@@ -26,7 +27,7 @@ public class InputOutput {
                 B = Integer.parseInt(st.nextToken());
             } catch (NumberFormatException e) {
                 br.close();
-                throw new IOException("Format salah: A dan B harus berupa angka.");
+                throw new IOException("Format salah: A dan B harus berupa bilangan bulat.");
             }
             b.setWidth(B);
             b.setHeight(A);
@@ -35,12 +36,17 @@ public class InputOutput {
             
             if (A<=0||B<=0){
                 br.close();
-                throw new IOException("Dimensi papan tidak valid.");
+                throw new IOException("Format salah: A dan B harus berupa bilangan bulat positif.");
             }
 
-            N = Integer.parseInt(br.readLine());
-            b.setTotalPieces(N);
+            try {
+                N = Integer.parseInt(br.readLine());
+            } catch (NumberFormatException e) {
+                br.close();
+                throw new IOException("Format salah: tidak terdapat jumlah piece non-primary di baris kedua.");
+            }
 
+            b.setTotalPieces(N);
             System.out.println("Total piece selain primary piece: "+N+"\n"); // debugging
             
             char[][] board = new char[A][B];
@@ -68,7 +74,7 @@ public class InputOutput {
                         exit[1] = l.indexOf('K');
                     }
                     panjang = lines.size()-1;
-                    if (panjang!=A){br.close();throw new IOException("Tinggi papan "+panjang+" tidak sesuai.");}
+                    if (panjang!=A){br.close();throw new IOException("Tinggi papan: "+panjang+" tidak sesuai dengan nilai A: "+A);}
                     continue;
                 }
 
@@ -83,23 +89,23 @@ public class InputOutput {
                         l=lines.get(i).substring(1);
 
                         panjang = lines.size();
-                        if (panjang!=A){br.close();throw new IOException("Tinggi papan "+panjang+" tidak sesuai.");}
+                        if (panjang!=A){br.close();throw new IOException("Tinggi papan: "+panjang+" tidak sesuai dengan nilai A: "+A);}
                     } else if (l.charAt(l.length()-1)=='K'){ // K plg kanan, exit={row,B}
                         exit[0] = row;
                         exit[1] = B;
                         l = l.substring(0, B);
 
                         panjang = lines.size();
-                        if (panjang!=A){br.close();throw new IOException("Tinggi papan "+panjang+" tidak sesuai.");}
+                        if (panjang!=A){br.close();throw new IOException("Tinggi papan: "+panjang+" tidak sesuai dengan nilai A: "+A);}
                     }
                     lebar = l.length();
-                    if (lebar != B){br.close();throw new IOException("Lebar papan "+lebar+" tidak sesuai.");}
+                    if (lebar != B){br.close();throw new IOException("Lebar papan "+lebar+" tidak sesuai dengan nilai B: "+B);}
                     
                 } else {
                     lebar = l.length();
                     // System.out.println(lebar);
 
-                    if (lebar != B){br.close();throw new IOException("Lebar papan "+lebar+" tidak sesuai.");}
+                    if (lebar != B){br.close();throw new IOException("Lebar papan "+lebar+" tidak sesuai dengan nilai B: "+B);}
                 }
 
                 if (row<A){
@@ -171,6 +177,18 @@ public class InputOutput {
             if (pieces.length != N+1){
                 throw new IOException("Jumlah piece "+pieces.length+" tidak sesuai dengan file input.");
             }
+            if (!b.checkImpossible()){
+                System.out.println("Berikut adalah board yang dimasukkan: ");
+                b.displayBoard();
+                throw new IOException("Konfigurasi board tidak solvable, primary piece (P) tidak akan dapat keluar dari pintu keluar (K) >:(\n"+
+                                       "Silakan jalankan program lagi dengan konfigurasi board yang solvable!");
+            }
+            if (!b.checkSolvable()){
+                System.out.println("Berikut adalah board yang dimasukkan: ");
+                b.displayBoard();
+                throw new IOException("Konfigurasi board tidak solvable, terdapat piece yang menghalangi primary piece (P) untuk bergerak ke pintu keluar (K) >:(\n"+
+                                       "Silakan jalankan program lagi dengan konfigurasi board yang solvable!");
+            }
         } catch (IOException e) {
             System.out.println("Gagal membaca file "+fileName);
             e.printStackTrace();
@@ -181,13 +199,13 @@ public class InputOutput {
 
     public static void writeFile(String fileName, Board awal, List<Simpul> output, long timeSpent){
         try{
-            fileName = "test\\" + "solution_"+fileName;
+            fileName = "test" + File.separator + "solution_"+fileName;
             FileWriter save = new FileWriter(fileName);
             save.write("Solusi untuk "+fileName.substring(14)+"\n\n");
             save.write("Dimensi papan: "+awal.getHeight()+" x "+awal.getWidth()+"\n");
             save.write("Jumlah piece selain P: "+awal.getTotalPieces()+"\n");
             save.write("\nWaktu penyelesaian: "+timeSpent+" ns\n");
-            save.write("Total gerakan yang dilakukan: "+output.size()+"\n\n");
+            save.write("Total simpul kondisi board yang ditelusuri: "+Algorithm.getVisitedCount()+"\n\n");
             
             // print ke file untuk papan awal
             save.write("Papan Awal\n");
@@ -254,7 +272,7 @@ public class InputOutput {
                 return;
             }
 
-            if (output.get(0).getIdPiece()=='-'){
+            if (output.get(0).getIdPiece()=='-' && output.size() == 1){
                 save.write("Papan sudah dalam kondisi menang.");
                 save.close();
                 return;
@@ -262,6 +280,10 @@ public class InputOutput {
 
             int counter = 1;
             for (Simpul s : output) {
+                if (s.getIdPiece() == '-') {
+                    continue;
+                }
+
                 save.write("\n");
                 Piece piece = s.getBoard().getPiece(s.getIdPiece());
                 
@@ -338,6 +360,7 @@ public class InputOutput {
                     }
                 }
             }
+            save.write("\nSolusi ditemukan! ^^");
             save.close();
         } catch (IOException e){
             System.out.println("Terjadi kesalahan saat menulis file.");
@@ -353,14 +376,7 @@ public class InputOutput {
         System.out.println("   /___/\\___/_/\\_,_/___/_/");  
                         
         System.out.println("Waktu penyelesaian: "+d+" ns");
-
-        int gerakan;
-        if (output.isEmpty()) {
-            gerakan = 0;
-        } else {
-            gerakan = output.size() - 1;
-        }
-        System.out.println("Total gerakan yang dilakukan: "+Algorithm.getVisitedCount()+"\n");
+        System.out.println("Total simpul kondisi board yang ditelusuri: "+Algorithm.getVisitedCount()+"\n");
 
         if (output.isEmpty()) {
             System.out.println("Tidak ditemukan solusi... :(");

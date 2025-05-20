@@ -17,12 +17,16 @@ public class Main {
         System.out.println("██╔══██╗██║   ██║╚════██║██╔══██║    ██╔══██║██║   ██║██║   ██║██╔══██╗    ╚════██║██║   ██║██║    ╚██╗ ██╔╝██╔══╝  ██╔══██╗");
         System.out.println("██║  ██║╚██████╔╝███████║██║  ██║    ██║  ██║╚██████╔╝╚██████╔╝██║  ██║    ███████║╚██████╔╝███████╗╚████╔╝ ███████╗██║  ██║");
         System.out.println("╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚═╝  ╚═╝    ╚═╝  ╚═╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═╝    ╚══════╝ ╚═════╝ ╚══════╝ ╚═══╝  ╚══════╝╚═╝  ╚═╝");
-        System.out.println("                    Dibuat oleh: 13523026 - Bertha Soliany Frandi dan 13523031 - Rafen Max Alessandro\n");
+        System.out.println("                    Dibuat oleh: 13523026 - Bertha Soliany Frandi dan 13523031 - Rafen Max Alessandro");
+        program();
+    }
+
+    public static void program() {
         try(Scanner sc = new Scanner(System.in)){
-            System.out.println("Masukkan nama file (ex.txt) atau 'exit' untuk keluar: ");
+            System.out.println("\nMasukkan nama file (ex.txt) atau 'exit' untuk keluar: ");
 
             String fileName = sc.nextLine();
-            File file = new File("test\\"+fileName);
+            File file = new File("test"+File.separator+fileName);
 
             if (fileName.equals("exit")){System.out.println("Bye bye~");System.exit(1);}
             
@@ -38,7 +42,7 @@ public class Main {
                 System.out.println("Masukkan nama file (ex.txt) atau 'exit' untuk keluar: ");
 
                 fileName = sc.nextLine();
-                file = new File("test\\"+fileName);
+                file = new File("test"+File.separator+fileName);
 
                 if (fileName.equals("exit")){System.out.println("Bye bye~");System.exit(1);}
             }
@@ -47,10 +51,10 @@ public class Main {
                 Board b = new Board();
                 InputOutput.readFile(fileName, b);
 
-                System.out.println("Berikut adalah board yang kamu masukkan: ");
+                System.out.println("Berikut adalah board yang dimasukkan: ");
                 b.displayBoard();
 
-                System.out.println("Sekarang, pilih algoritma penyelesaian yang ingin kamu gunakan: ");
+                System.out.println("Sekarang, pilih algoritma penyelesaian yang akan digunakan: ");
                 int pilihan=0;
                 String pil;
                 boolean validInput = false;
@@ -97,7 +101,7 @@ public class Main {
                 InputOutput.writeFile(fileName, b, output, duration);
 
             } catch (IOException e) {
-                main(args);
+                program();
             }
         }
     }

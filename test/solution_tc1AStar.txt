@@ -1,0 +1,65 @@
+Solusi untuk tc1AStar.txt
+
+Dimensi papan: 6 x 6
+Jumlah piece selain P: 11
+
+Waktu penyelesaian: 45 ns
+Total simpul kondisi board yang ditelusuri: 1163
+
+Papan Awal
+AAB..F 
+..BCDF 
+GPPCDFK
+GH.III 
+GHJ... 
+LLJMM. 
+
+Gerakan 1: C sebanyak 1 petak ke atas
+AABC.F 
+..BCDF 
+GPP.DFK
+GH.III 
+GHJ... 
+LLJMM. 
+
+Gerakan 2: D sebanyak 1 petak ke atas
+AABCDF 
+..BCDF 
+GPP..FK
+GH.III 
+GHJ... 
+LLJMM. 
+
+Gerakan 3: P sebanyak 2 petak ke kanan
+AABCDF 
+..BCDF 
+G..PPFK
+GH.III 
+GHJ... 
+LLJMM. 
+
+Gerakan 4: I sebanyak 1 petak ke kiri
+AABCDF 
+..BCDF 
+G..PPFK
+GHIII. 
+GHJ... 
+LLJMM. 
+
+Gerakan 5: F sebanyak 3 petak ke bawah
+AABCD. 
+..BCD. 
+G..PP.K
+GHIIIF 
+GHJ..F 
+LLJMMF 
+
+Gerakan 6: P sebanyak 1 petak ke kanan
+AABCD. 
+..BCD. 
+G...PPK
+GHIIIF 
+GHJ..F 
+LLJMMF 
+
+Solusi ditemukan! ^^

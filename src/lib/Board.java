@@ -416,4 +416,77 @@ public class Board {
     public int hashCode() {
         return Arrays.hashCode(pieces);
     }
+
+    public boolean checkImpossible() {
+        Piece primaryPiece = getPiece('P');
+        char orientation = primaryPiece.getOrientation();
+
+        if (orientation == 'v') {
+            if (exitLoc[0] == -1 || exitLoc[0] == height) {
+                if (exitLoc[1] == primaryPiece.getLocation()[0][1]) {
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        }
+
+        if (exitLoc[1] == -1 || exitLoc[1] == width) {
+            if (exitLoc[0] == primaryPiece.getLocation()[0][0]) {
+                return true;
+            }
+            return false;
+        }
+        return false;   
+    }
+
+    public boolean checkSolvable() {
+        Piece primaryPiece = getPiece('P');
+        char orientation = primaryPiece.getOrientation();
+        int i = primaryPiece.getLocation()[0][0];
+        int j = primaryPiece.getLocation()[0][1];
+        int length = primaryPiece.getLength();
+
+        if (orientation == 'v') {
+            if (exitLoc[0] == -1) {
+                for (int k = i; k > 0; k--) {
+                    if (board[k][j] != '.') {
+                        if (getPiece(board[k][j]).getOrientation() == primaryPiece.getOrientation()) {
+                            return false;
+                        }
+                    }
+                }
+            } else {
+                for (int k = i + length; k < height; k++) {
+                    if (board[k][j] != '.') {
+                        if (getPiece(board[k][j]).getOrientation() == primaryPiece.getOrientation()) {
+                            return false;
+                        }
+                    }
+                }
+            }
+        }
+
+        if (orientation == 'h') {
+            if (exitLoc[1] == -1) {
+                for (int k = j; k > 0; k--) {
+                    if (board[i][k] != '.') {
+                        if (getPiece(board[i][k]).getOrientation() == primaryPiece.getOrientation()) {
+                            return false;
+                        }
+                    }
+                }
+            } else {
+                for (int k = j + length; k < width; k++) {
+                    if (board[i][k] != '.') {
+                        if (getPiece(board[i][k]).getOrientation() == primaryPiece.getOrientation()) {
+                            return false;
+                        }
+                    }
+                }
+            }
+        }
+
+        return true;
+    }
 }

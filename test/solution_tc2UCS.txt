@@ -3,8 +3,8 @@ Solusi untuk tc2UCS.txt
 Dimensi papan: 6 x 6
 Jumlah piece selain P: 10
 
-Waktu penyelesaian: 273 ns
-Total gerakan yang dilakukan: 9
+Waktu penyelesaian: 221 ns
+Total simpul kondisi board yang ditelusuri: 53112
 
 Papan Awal
 AEE.H. 
@@ -22,66 +22,68 @@ A..J.I
 A.DJLL 
 ..DMM. 
 
-Gerakan 2: E sebanyak 1 petak ke kiri
+Gerakan 2: F sebanyak 3 petak ke bawah
+.EE.H. 
+..G.HI 
+A.GPPIK
+A..J.I 
+AFDJLL 
+.FDMM. 
+
+Gerakan 3: E sebanyak 1 petak ke kiri
 EE..H. 
-.FG.HI 
-AFGPPIK
+..G.HI 
+A.GPPIK
 A..J.I 
-A.DJLL 
-..DMM. 
+AFDJLL 
+.FDMM. 
 
-Gerakan 3: G sebanyak 1 petak ke atas
-EEG.H. 
-.FG.HI 
-AF.PPIK
-A..J.I 
-A.DJLL 
-..DMM. 
-
-Gerakan 4: F sebanyak 2 petak ke bawah
+Gerakan 4: G sebanyak 1 petak ke atas
 EEG.H. 
 ..G.HI 
 A..PPIK
-AF.J.I 
+A..J.I 
 AFDJLL 
-..DMM. 
+.FDMM. 
 
 Gerakan 5: P sebanyak 2 petak ke kiri
 EEG.H. 
 ..G.HI 
 APP..IK
-AF.J.I 
+A..J.I 
 AFDJLL 
-..DMM. 
+.FDMM. 
 
 Gerakan 6: J sebanyak 3 petak ke atas
 EEGJH. 
 ..GJHI 
 APP..IK
-AF...I 
+A....I 
 AFD.LL 
-..DMM. 
+.FDMM. 
 
 Gerakan 7: L sebanyak 1 petak ke kiri
 EEGJH. 
 ..GJHI 
 APP..IK
-AF...I 
+A....I 
 AFDLL. 
-..DMM. 
+.FDMM. 
 
 Gerakan 8: I sebanyak 2 petak ke bawah
 EEGJH. 
 ..GJH. 
 APP...K
-AF...I 
+A....I 
 AFDLLI 
-..DMMI 
+.FDMMI 
 
 Gerakan 9: P sebanyak 3 petak ke kanan
 EEGJH. 
 ..GJH. 
 A...PPK
-AF...I 
+A....I 
 AFDLLI 
-..DMMI 
+.FDMMI 
+
+Solusi ditemukan! ^^

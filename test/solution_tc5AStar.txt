@@ -1,0 +1,15 @@
+Solusi untuk tc5AStar.txt
+
+Dimensi papan: 5 x 6
+Jumlah piece selain P: 6
+
+Waktu penyelesaian: 22 ns
+Total simpul kondisi board yang ditelusuri: 30
+
+Papan Awal
+F....A 
+F....A 
+FPP..AK
+H.CCCC 
+HDDDEE 
+Tidak ditemukan solusi... :(

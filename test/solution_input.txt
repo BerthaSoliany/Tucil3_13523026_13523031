@@ -1,31 +1,15 @@
-Solusi untuk test\solution_input.txt
+Solusi untuk input.txt
 
-Dimensi papan: 6 x 6
-Jumlah piece selain P: 12
+Dimensi papan: 4 x 4
+Jumlah piece selain P: 2
 
-Waktu penyelesaian: 36 ns
-Total gerakan yang dilakukan: 2
+Waktu penyelesaian: 14 ns
+Total gerakan yang dilakukan: 0
 
 Papan Awal
- .ZXFYY
- AEE.H.
- A.G.HI
-K..GPPI
- .....I
- .B.JLL
-
-Gerakan 1: G sebanyak 2 petak ke bawah
- .ZXFYY
- AEE.H.
- A...HI
-K...PPI
- ..G..I
- .BGJLL
-
-Gerakan 2: P sebanyak 3 petak ke kiri
- .ZXFYY
- AEE.H.
- A...HI
-KPP...I
- ..G..I
- .BGJLL
+AAP.
+..P.
+BBB.
+....
+  K 
+Tidak ditemukan solusi... :(

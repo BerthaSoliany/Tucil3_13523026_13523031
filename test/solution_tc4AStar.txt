@@ -1,10 +1,10 @@
-Solusi untuk tc4UCS.txt
+Solusi untuk tc4AStar.txt
 
 Dimensi papan: 6 x 6
 Jumlah piece selain P: 12
 
-Waktu penyelesaian: 120 ns
-Total simpul kondisi board yang ditelusuri: 24532
+Waktu penyelesaian: 116 ns
+Total simpul kondisi board yang ditelusuri: 22860
 
 Papan Awal
 AEE.H. 
@@ -62,31 +62,31 @@ AFGPPIK
 ..DJLL 
 .CCJMM 
 
-Gerakan 7: F sebanyak 2 petak ke bawah
-AEE.HI 
-A.G.HI 
-A.GPPIK
-.FDBBB 
-.FDJLL 
-.CCJMM 
-
-Gerakan 8: A sebanyak 3 petak ke bawah
+Gerakan 7: A sebanyak 3 petak ke bawah
 .EE.HI 
-..G.HI 
-..GPPIK
-AFDBBB 
-AFDJLL 
+.FG.HI 
+.FGPPIK
+A.DBBB 
+A.DJLL 
 ACCJMM 
 
-Gerakan 9: E sebanyak 1 petak ke kiri
+Gerakan 8: E sebanyak 1 petak ke kiri
 EE..HI 
-..G.HI 
-..GPPIK
-AFDBBB 
-AFDJLL 
+.FG.HI 
+.FGPPIK
+A.DBBB 
+A.DJLL 
 ACCJMM 
 
-Gerakan 10: G sebanyak 1 petak ke atas
+Gerakan 9: G sebanyak 1 petak ke atas
+EEG.HI 
+.FG.HI 
+.F.PPIK
+A.DBBB 
+A.DJLL 
+ACCJMM 
+
+Gerakan 10: F sebanyak 2 petak ke bawah
 EEG.HI 
 ..G.HI 
 ...PPIK
@@ -174,31 +174,31 @@ A.PPHIK
 ..DJLL 
 CCDJMM 
 
-Gerakan 21: P sebanyak 1 petak ke kiri
+Gerakan 21: B sebanyak 3 petak ke kiri
 AFGEEI 
 AFG.HI 
-APP.HIK
-...BBB 
-..DJLL 
-CCDJMM 
-
-Gerakan 22: B sebanyak 3 petak ke kiri
-AFGEEI 
-AFG.HI 
-APP.HIK
+A.PPHIK
 BBB... 
 ..DJLL 
 CCDJMM 
 
-Gerakan 23: I sebanyak 1 petak ke bawah
+Gerakan 22: I sebanyak 1 petak ke bawah
 AFGEE. 
 AFG.HI 
-APP.HIK
+A.PPHIK
 BBB..I 
 ..DJLL 
 CCDJMM 
 
-Gerakan 24: E sebanyak 1 petak ke kanan
+Gerakan 23: E sebanyak 1 petak ke kanan
+AFG.EE 
+AFG.HI 
+A.PPHIK
+BBB..I 
+..DJLL 
+CCDJMM 
+
+Gerakan 24: P sebanyak 1 petak ke kiri
 AFG.EE 
 AFG.HI 
 APP.HIK
@@ -214,15 +214,15 @@ BBB..I
 ..D.LL 
 CCD.MM 
 
-Gerakan 26: B sebanyak 2 petak ke kanan
+Gerakan 26: P sebanyak 1 petak ke kanan
 AFGJEE 
 AFGJHI 
-APP.HIK
-..BBBI 
+A.PPHIK
+BBB..I 
 ..D.LL 
 CCD.MM 
 
-Gerakan 27: P sebanyak 1 petak ke kanan
+Gerakan 27: B sebanyak 2 petak ke kanan
 AFGJEE 
 AFGJHI 
 A.PPHIK
@@ -334,15 +334,15 @@ AFDBBB
 AFD.LL 
 ACC.MM 
 
-Gerakan 41: H sebanyak 1 petak ke atas
-EEG.HI 
+Gerakan 41: J sebanyak 1 petak ke atas
+EEGJ.I 
 ..GJHI 
-PP.J.IK
+PP..HIK
 AFDBBB 
 AFD.LL 
 ACC.MM 
 
-Gerakan 42: J sebanyak 1 petak ke atas
+Gerakan 42: H sebanyak 1 petak ke atas
 EEGJHI 
 ..GJHI 
 PP...IK
@@ -358,68 +358,68 @@ AFDBBB
 AFD.LL 
 ACC.MM 
 
-Gerakan 44: A sebanyak 2 petak ke atas
+Gerakan 44: A sebanyak 1 petak ke atas
 EEGJHI 
-A.GJHI 
+..GJHI 
 A..PPIK
 AFDBBB 
-.FD.LL 
+AFD.LL 
 .CC.MM 
 
-Gerakan 45: C sebanyak 1 petak ke kiri
+Gerakan 45: L sebanyak 1 petak ke kiri
 EEGJHI 
-A.GJHI 
+..GJHI 
 A..PPIK
 AFDBBB 
-.FD.LL 
+AFDLL. 
+.CC.MM 
+
+Gerakan 46: C sebanyak 1 petak ke kiri
+EEGJHI 
+..GJHI 
+A..PPIK
+AFDBBB 
+AFDLL. 
 CC..MM 
 
-Gerakan 46: D sebanyak 1 petak ke bawah
+Gerakan 47: D sebanyak 1 petak ke bawah
 EEGJHI 
-A.GJHI 
+..GJHI 
 A..PPIK
 AF.BBB 
-.FD.LL 
-CCD.MM 
-
-Gerakan 47: B sebanyak 1 petak ke kiri
-EEGJHI 
-A.GJHI 
-A..PPIK
-AFBBB. 
-.FD.LL 
+AFDLL. 
 CCD.MM 
 
 Gerakan 48: M sebanyak 1 petak ke kiri
 EEGJHI 
-A.GJHI 
+..GJHI 
 A..PPIK
-AFBBB. 
-.FD.LL 
+AF.BBB 
+AFDLL. 
 CCDMM. 
 
-Gerakan 49: L sebanyak 1 petak ke kiri
+Gerakan 49: B sebanyak 1 petak ke kiri
 EEGJHI 
-A.GJHI 
+..GJHI 
 A..PPIK
 AFBBB. 
-.FDLL. 
+AFDLL. 
 CCDMM. 
 
 Gerakan 50: I sebanyak 3 petak ke bawah
 EEGJH. 
-A.GJH. 
+..GJH. 
 A..PP.K
 AFBBBI 
-.FDLLI 
+AFDLLI 
 CCDMMI 
 
 Gerakan 51: P sebanyak 1 petak ke kanan
 EEGJH. 
-A.GJH. 
+..GJH. 
 A...PPK
 AFBBBI 
-.FDLLI 
+AFDLLI 
 CCDMMI 
 
 Solusi ditemukan! ^^
